@@ -10,6 +10,7 @@ function App() {
 
   const buyPicture = () => {
     setBoughtPicture(!boughtPicture);
+    console.log('mamy to')
   };
 
   return (
