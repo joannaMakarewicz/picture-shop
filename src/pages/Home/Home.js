@@ -1,16 +1,7 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import Content from '../../components/Content/Content';
-import Footer from '../../components/Footer/Footer';
+import React from "react";
 
-const Home = () => {
-  return (
-    <div>
-      <Header />
-      <Content />
-      <Footer />
-    </div>
-  )
-}
+const Home = (props) => {
+  return <div>{props.children}</div>;
+};
 
 export default Home;
