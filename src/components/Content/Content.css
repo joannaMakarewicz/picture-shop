@@ -1,0 +1,30 @@
+.content {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.content__image {
+    height: 100%;
+    padding: 2rem;
+}
+
+.content__frame {
+    background-image: url('../../assets/frame.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+@media screen and (max-width:1024px)  {
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media screen and (max-width:768px)  {
+    .content {
+        grid-template-columns: 1fr;
+    }
+    
+}
