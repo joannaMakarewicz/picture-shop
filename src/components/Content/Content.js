@@ -1,31 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ContentButtons from "./ContentButtons/ContentButtons";
-import axios from "axios";
 import "../Content/Content.css";
 
-
-const Content = ({buyPicture}) => {
-
-  const [pictures, setPictures] = useState([]);
-
-  const api =
-    "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
-
-  const getPicture = async () => {
-    await axios.get(api).then((response) => {
-      setPictures(response.data.results);
-      console.log(response.data.results);
-    });
-  };
-
-
-
-  useEffect(() => {
-    getPicture();
-  }, []);
-
-
-
+const Content = ({ buyPicture, pictures }) => {
   return (
     <div className="content">
       {pictures.map((picture, index) => {
@@ -37,9 +14,16 @@ const Content = ({buyPicture}) => {
               alt="random example"
             />
             <div className="card-body">
-              <h5 className="card-title">Tytuł</h5>
+              <h5 className="card-title">
+                {picture.tags[0].title.toUpperCase() === "NATURE"
+                  ? picture.tags[1].title.toUpperCase()
+                  : picture.tags[0].title.toUpperCase()}
+              </h5>
               <p className="card-text">{picture.alt_description}</p>
-              <ContentButtons buyPicture={() => buyPicture()} picture={picture}/>
+              <ContentButtons
+                buyPicture={() => buyPicture()}
+                picture={picture}
+              />
             </div>
           </div>
         );
