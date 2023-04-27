@@ -4,16 +4,11 @@
 }
 
 .content__image {
-    height: 100%;
-    padding: 2rem;
+    border: 10px solid #1111;
+    height: 20rem;
+    width: 80%;
 }
 
-.content__frame {
-    background-image: url('../../assets/frame.png');
-    background-size:cover;
-    background-repeat: no-repeat;
-    width: 100%;
-}
 
 @media screen and (max-width:1024px)  {
     .content {
