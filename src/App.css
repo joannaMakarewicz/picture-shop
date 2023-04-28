@@ -1,4 +1,5 @@
 #root {
     background: #1d1f20;
     padding:6px;
+    min-height: 100vh;
 }

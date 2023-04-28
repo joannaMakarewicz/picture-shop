@@ -7,7 +7,7 @@ const Content = ({ buyPicture, pictures }) => {
     <div className="content">
       {pictures.map((picture, index) => {
         return (
-          <div className="card m-3" key={index}>
+          <div className="card" key={index}>
             <img
               className="content__image card-img-top"
               src={picture.urls.small}

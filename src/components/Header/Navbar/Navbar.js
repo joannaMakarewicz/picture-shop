@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState("");
@@ -11,21 +11,45 @@ const Navbar = () => {
     console.log(inputValue);
   };
 
+  const onKeyDownHandler = e => {
+    if (e.key === 'Enter') {
+      inputSearch();
+    }
+  }
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  }
+
+  useEffect(() => {
+    focusInput()
+  }, []);
+
   return (
-    <nav className="mainNavbar navbar justify-content-between p-5">
-      <Link
-        to="/zaloguj"
-        className="navbar__link text-light text-decoration-none"
-      >
-        Zaloguj
-      </Link>
+    <nav className="mainNavbar navbar justify-content-between pt-5 pb-5">
+      <div>
+        <NavLink
+          to="/"
+          className="text-light text-decoration-none"
+        >
+          Strona główna
+        </NavLink>
+        <NavLink
+          to="/zaloguj"
+          className="text-light text-decoration-none ms-3"
+        >
+          Zaloguj
+        </NavLink>
+      </div>
+
       <div className="d-flex flex-row">
         <input
           className="me-2"
           ref={inputRef}
           type="text"
-          placeholder="Search"
+          placeholder="Szukaj"
           aria-label="Search"
+          onKeyDown={onKeyDownHandler}
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button
