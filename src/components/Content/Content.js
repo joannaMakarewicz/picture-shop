@@ -13,7 +13,7 @@ const Content = ({ buyPicture, pictures }) => {
               src={picture.urls.small}
               alt="random example"
             />
-            <div className="card-body">
+            <div className=" card-body">
               <h5 className="card-title">
                 {picture.tags[0].title.toUpperCase() === "NATURE"
                   ? picture.tags[1].title.toUpperCase()
@@ -33,4 +33,9 @@ const Content = ({ buyPicture, pictures }) => {
   );
 };
 
-export default Content;
+const areEqual = (prevProps, nextProps) => {
+  return prevProps.pictures === nextProps.pictures;
+}
+
+export default React.memo(Content, areEqual);
+

@@ -8,6 +8,7 @@ import Content from "./components/Content/Content";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Search from "./pages/Search/Search";
 
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
   const getPicture = async () => {
     await axios.get(api).then((response) => {
       setPictures(response.data.results);
-      console.log(response.data.results);
     });
   };
 
@@ -48,6 +48,7 @@ function App() {
             }
           />
           <Route path="/zaloguj" element={<Login />} />
+          <Route path="/wyszukaj/:term" element={<Search />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>

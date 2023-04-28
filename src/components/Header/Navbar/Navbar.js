@@ -1,31 +1,40 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef();
+  const listOfItems = useNavigate();
 
-  const [inputValue, setInputValue] = useState('');
-
-  // const inputSearch = () => {
-
-  // }
+  const inputSearch = (e) => {
+    listOfItems(`/wyszukaj/${inputValue}`);
+    console.log(inputValue);
+  };
 
   return (
     <nav className="mainNavbar navbar justify-content-between p-5">
-      <Link to="/zaloguj" className="navbar__link text-light text-decoration-none">
+      <Link
+        to="/zaloguj"
+        className="navbar__link text-light text-decoration-none"
+      >
         Zaloguj
       </Link>
-      <form className="form d-flex flex-row">
+      <div className="d-flex flex-row">
         <input
-          className="form-control me-2"
-          type="search"
+          className="me-2"
+          ref={inputRef}
+          type="text"
           placeholder="Search"
           aria-label="Search"
-          onChange = {(e)=> setInputValue(e.target.value)}
+          onChange={(e) => setInputValue(e.target.value)}
         />
-        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit" >
+        <button
+          className="btn btn-outline-primary my-2 my-sm-0"
+          onClick={inputSearch}
+        >
           Search
         </button>
-      </form>
+      </div>
     </nav>
   );
 };
