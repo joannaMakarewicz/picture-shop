@@ -14,16 +14,21 @@ const ContentButtons = ({ buyPicture, picture }) => {
 
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-between">
+      <div>
       {likes === 0
         ? <BsHeart className="text-end" onClick={counter} />
         : <BsHeartFill className="heart text-end" onClick={counter}/>
       }
+
+      <p className="m-0">{totalLikes}</p>
+      </div>
+
         <button href="/" className="btn btn-outline-primary" onClick={buyPicture}>
           Buy
         </button>
       </div>
-      <p className="m-0">{totalLikes}</p>
+      
     </div>
   );
 };

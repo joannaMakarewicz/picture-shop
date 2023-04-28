@@ -1,13 +1,13 @@
 import React from 'react';
 import useWebsiteTitle from '../../hooks/useWebsiteTitle';
 
-const Login = () => {
-  useWebsiteTitle('Strona logowania')
+const ErrorPage = () => {
+    useWebsiteTitle('ERROR PAGE')
   return (
     <div>
-      <p>Test</p>
+      <p>Error</p>
     </div>
   )
 }
 
-export default Login;
+export default ErrorPage;
