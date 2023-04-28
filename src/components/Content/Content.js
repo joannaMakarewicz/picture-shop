@@ -2,10 +2,10 @@ import React from "react";
 import ContentButtons from "./ContentButtons/ContentButtons";
 import "../Content/Content.css";
 
-const Content = ({ buyPicture, pictures }) => {
+const Content = ({ pictures }) => {
   return (
     <div className="content">
-      {pictures.map((picture, index) => {
+      {pictures.map((picture, index, boughtPicture) => {
         return (
           <div className="card" key={index}>
             <img
@@ -21,7 +21,6 @@ const Content = ({ buyPicture, pictures }) => {
               </h5>
               <p className="card-text">{picture.alt_description}</p>
               <ContentButtons
-                buyPicture={() => buyPicture()}
                 picture={picture}
               />
             </div>

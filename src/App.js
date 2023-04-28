@@ -13,8 +13,8 @@ import Search from "./pages/Search/Search";
 
 function App() {
 
-  const [boughtPicture, setBoughtPicture] = useState(false);
   const [pictures, setPictures] = useState([]);
+
 
   const api =
     "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
@@ -29,10 +29,6 @@ function App() {
     getPicture();
   }, []);
 
-  const buyPicture = () => {
-    setBoughtPicture(!boughtPicture);
-    console.log(boughtPicture);
-  };
 
   return (
       <Router>
@@ -42,7 +38,7 @@ function App() {
             element={
               <Home>
                 <Header />
-                <Content buyPicture={() => buyPicture()} pictures={pictures} />
+                <Content pictures={pictures}/>
                 <Footer />
               </Home>
             }

@@ -4,11 +4,13 @@ import axios from "axios";
 import Content from "../../components/Content/Content";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import "../Search/Search.css";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Search = () => {
-  const [pictures, setPictures] = useState([]);
   const { term } = useParams();
-
+  useWebsiteTitle(`Wyszukaj: ${term}`)
+  const [pictures, setPictures] = useState([]);
+  
   const api =
     "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
 
