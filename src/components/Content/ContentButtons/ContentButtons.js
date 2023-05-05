@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import "../ContentButtons/ContentButtons.css";
 
 const ContentButtons = ({ picture }) => {
-  const [likes, setLikes] = useState(false);
-  const [boughtPicture, setBoughtPicture] = useState(false);
+  const historyValueOfLikes = JSON.parse(
+    localStorage.getItem(`likes: ${picture.id}`)
+  );
+  const purchaseHistory = JSON.parse(
+    localStorage.getItem(`purchase: ${picture.id}`)
+  );
 
-  const totalLikes = likes + picture.likes;
+  const [likes, setLikes] = useState(historyValueOfLikes);
+  const [boughtPicture, setBoughtPicture] = useState(purchaseHistory);
+
+  if (likes === null) {
+    setLikes(false);
+  }
+
+  if (boughtPicture === null) {
+    setBoughtPicture(false);
+  }
+
+  localStorage.setItem(`likes: ${picture.id}`, JSON.stringify(likes));
+  localStorage.setItem(`purchase: ${picture.id}`,JSON.stringify(boughtPicture));
 
   const counter = () => {
     setLikes(!likes);
@@ -27,7 +43,13 @@ const ContentButtons = ({ picture }) => {
             <BsHeartFill className="heart text-end" onClick={counter} />
           )}
 
-          <p className="m-0">{totalLikes}</p>
+          <div className="m-0">
+            {likes === false ? (
+              <p>{picture.likes}</p>
+            ) : (
+              <p>{picture.likes + 1}</p>
+            )}
+          </div>
         </div>
         {boughtPicture === false ? (
           <button

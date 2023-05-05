@@ -4,10 +4,10 @@ import Navbar from "./Navbar/Navbar";
 
 const Header = () => {
   return (
-    <header className="">
+    <header className="header">
       <Navbar />
-      <div className="header d-flex flex-column justify-content-center align-items-center text-center">
-        <h1>Galeria sztuki</h1>
+      <div className="header__content d-flex flex-column justify-content-center align-items-center text-center">
+        <h1 className="header__heading">Galeria sztuki</h1>
         <p>Wybierz swój wymarzony obraz w naszej Galerii</p>
       </div>
     </header>

@@ -4,7 +4,7 @@ import "../Content/Content.css";
 
 const Content = ({ pictures }) => {
   return (
-    <div className="content">
+    <div className="content text-dark">
       {pictures.map((picture, index, boughtPicture) => {
         return (
           <div className="card" key={index}>
@@ -27,7 +27,7 @@ const Content = ({ pictures }) => {
           </div>
         );
       })}
-      ,
+      
     </div>
   );
 };

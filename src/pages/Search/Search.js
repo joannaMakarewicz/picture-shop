@@ -8,9 +8,9 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Search = () => {
   const { term } = useParams();
-  useWebsiteTitle(`Wyszukaj: ${term}`)
+  useWebsiteTitle(`Wyszukaj: ${term}`);
   const [pictures, setPictures] = useState([]);
-  
+
   const api =
     "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
 
@@ -32,10 +32,18 @@ const Search = () => {
   }, [term]);
 
   return (
-    <div >
-    <Navbar/>
-      <h2 className="search">Wyniki dla frazy "{term}":</h2>
-      <Content pictures={pictures} />
+    <div className="container search">
+      <Navbar />
+      <h1 className="mb-4">Wyniki dla frazy "{term}":</h1>
+      <div>
+        {pictures.length === 0
+        ?
+        <h2>Pictures not found</h2>
+        :
+        <Content pictures={pictures} />
+        }
+      </div>
+      
     </div>
   );
 };

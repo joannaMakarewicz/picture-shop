@@ -8,7 +8,6 @@ const Navbar = () => {
 
   const inputSearch = (e) => {
     listOfItems(`/wyszukaj/${inputValue}`);
-    console.log(inputValue);
   };
 
   const onKeyDownHandler = e => {
@@ -30,13 +29,13 @@ const Navbar = () => {
       <div>
         <NavLink
           to="/"
-          className="text-light text-decoration-none"
+          id="active"
         >
           Strona główna
         </NavLink>
         <NavLink
           to="/zaloguj"
-          className="text-light text-decoration-none ms-3"
+          id="inactive"
         >
           Zaloguj
         </NavLink>
