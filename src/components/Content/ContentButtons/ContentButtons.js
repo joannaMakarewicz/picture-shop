@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
+import useAuth from "../../../hooks/useAuth";
 import "../ContentButtons/ContentButtons.css";
 
 const ContentButtons = ({ picture }) => {
+  const [auth] = useAuth();
   const historyValueOfLikes = JSON.parse(
     localStorage.getItem(`likes: ${picture.id}`)
   );
@@ -23,7 +25,10 @@ const ContentButtons = ({ picture }) => {
   }
 
   localStorage.setItem(`likes: ${picture.id}`, JSON.stringify(likes));
-  localStorage.setItem(`purchase: ${picture.id}`,JSON.stringify(boughtPicture));
+  localStorage.setItem(
+    `purchase: ${picture.id}`,
+    JSON.stringify(boughtPicture)
+  );
 
   const counter = () => {
     setLikes(!likes);
@@ -32,6 +37,7 @@ const ContentButtons = ({ picture }) => {
   const buyPicture = () => {
     setBoughtPicture(!boughtPicture);
   };
+
 
   return (
     <div>
@@ -51,22 +57,38 @@ const ContentButtons = ({ picture }) => {
             )}
           </div>
         </div>
-        {boughtPicture === false ? (
-          <button
-            href="/"
-            className="contentButtons__button btn btn-outline-primary ps-4 pe-4"
-            onClick={buyPicture}
-          >
-            Buy
-          </button>
+        {auth ? (
+          <div>
+            {boughtPicture === false ? (
+              <button
+                href="/"
+                className="contentButtons__button btn btn-outline-primary ps-4 pe-4"
+                onClick={buyPicture}
+              >
+                Buy
+              </button>
+            ) : (
+              <button
+                href="/"
+                className="contentButtons__button btn btn-primary ps-4 pe-4"
+                onClick={buyPicture}
+              >
+                Buy
+              </button>
+            )}
+          </div>
         ) : (
-          <button
-            href="/"
-            className="contentButtons__button btn btn-primary ps-4 pe-4"
-            onClick={buyPicture}
-          >
-            Buy
-          </button>
+          <div>
+            <button
+              type="button"
+              className="contentButtons__button btn btn-secondary ps-4 pe-4"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Log-in for buying"
+            >
+              Buy
+            </button>
+          </div>
         )}
       </div>
     </div>

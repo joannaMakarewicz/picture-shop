@@ -9,11 +9,15 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
+import AuthContext from "./context/authContext";
+import Summary from "./pages/Summary/Summary";
 
 
 function App() {
 
   const [pictures, setPictures] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  console.log(`Status ${isAuthenticated}`)
 
 
   const api =
@@ -31,6 +35,11 @@ function App() {
 
 
   return (
+    <AuthContext.Provider value = {{
+      isAuthenticated: isAuthenticated,
+      login: () => setIsAuthenticated(true),
+      logout: () => setIsAuthenticated(false)
+      }}>
       <Router>
         <Routes>
           <Route
@@ -45,9 +54,12 @@ function App() {
           />
           <Route path="/zaloguj" element={<Login />} />
           <Route path="/wyszukaj/:term" element={<Search />} />
+          <Route path="/koszyk" element={<Summary />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
+    </AuthContext.Provider>
+
   );
 }
 

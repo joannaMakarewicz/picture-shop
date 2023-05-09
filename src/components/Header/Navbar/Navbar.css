@@ -1,5 +1,9 @@
 .mainNavbar {
-  background-color: red;
+  border-bottom: 1px solid white;
+}
+
+.mainNavbar__list {
+  list-style-type:none;
 }
 
 .active {
