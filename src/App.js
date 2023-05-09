@@ -11,6 +11,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
 import AuthContext from "./context/authContext";
 import Summary from "./pages/Summary/Summary";
+import Register from "./pages/Register/Register";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             }
           />
           <Route path="/zaloguj" element={<Login />} />
+          <Route path="/zarejestruj" element={<Register />} />
           <Route path="/wyszukaj/:term" element={<Search />} />
           <Route path="/koszyk" element={<Summary />} />
           <Route path="*" element={<ErrorPage />} />

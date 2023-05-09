@@ -68,6 +68,7 @@ const Navbar = () => {
           </li>
           </>
         ) : (
+          <>
           <li>
             <NavLink
               className="ms-2 text-light text-decoration-none"
@@ -76,6 +77,15 @@ const Navbar = () => {
               Log in
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              className="ms-2 text-light text-decoration-none"
+              to="/zarejestruj"
+            >
+              Register
+            </NavLink>
+          </li>
+          </>
         )}
       </ul>
 
