@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axiosInstance from "../../services/config";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
@@ -8,11 +9,26 @@ const Register = () => {
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
 
-  const submit = (e) => {
+
+  const submit = async (e) => {
     e.preventDefault();
-    console.log("zarejestrowany");
-    navigate("/");
+    const res = await axiosInstance.post(
+      "/Auth",
+      {
+        records: [
+          {
+            fields: {
+              fldYWDNQU1c1QiJ3L: "tak@testtest.pl",
+              fldxWHbtqZUL05fKh: "tak123",
+            },
+          },
+        ],
+      },
+    );
+
+    console.log(res.data);
   };
+
   return (
     <div className="container text-light">
       <Navbar />
@@ -34,6 +50,7 @@ const Register = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              onchange={}
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -57,4 +74,4 @@ const Register = () => {
   );
 };
 
-export default Register
+export default Register;
