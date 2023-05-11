@@ -8,6 +8,10 @@ const Register = () => {
   useWebsiteTitle("Zarejestruj się");
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  });
 
 
   const submit = async (e) => {
@@ -18,16 +22,17 @@ const Register = () => {
         records: [
           {
             fields: {
-              fldYWDNQU1c1QiJ3L: "tak@testtest.pl",
-              fldxWHbtqZUL05fKh: "tak123",
+              fldYWDNQU1c1QiJ3L: form.email,
+              fldxWHbtqZUL05fKh: form.password,
             },
           },
         ],
       },
     );
 
-    console.log(res.data);
+    console.log(form.email);
   };
+
 
   return (
     <div className="container text-light">
@@ -47,10 +52,10 @@ const Register = () => {
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              id="email"
               placeholder="Enter email"
-              onchange={}
+              onChange={e => setForm({...form, email: e.target.value})}
+              value={form.email}
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -61,8 +66,10 @@ const Register = () => {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="password"
               placeholder="Password"
+              value={form.password}
+              onChange={e => setForm({...form, password: e.target.value})}
             />
           </div>
           <button type="submit" className="btn btn-primary mt-3">
