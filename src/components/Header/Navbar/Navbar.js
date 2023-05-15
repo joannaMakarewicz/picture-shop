@@ -38,8 +38,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="mainNavbar navbar justify-content-between pt-3 pb-3">
-      <ul className="mainNavbar__list d-flex flex-row">
+    <nav className="mainNavbar navbar justify-content-between align-items-center pt-3 pb-3">
+      <ul className="mainNavbar__list d-flex m-0 p-0">
         <li>
           <NavLink className="text-light text-decoration-none" to="/">
             Home
@@ -50,16 +50,16 @@ const Navbar = () => {
           <>
           <li>
             <NavLink
-            className="ms-2 text-light text-decoration-none"
+            className="ms-5 text-light text-decoration-none"
               to="/koszyk"
               
             >
-              Mój koszyk
+              My cart
             </NavLink>
           </li>
           <li>
             <a
-              className="ms-2 text-light text-decoration-none"
+              className="ms-5 text-light text-decoration-none"
               href="/zaloguj"
               onClick={logout}
             >
@@ -71,7 +71,7 @@ const Navbar = () => {
           <>
           <li>
             <NavLink
-              className="ms-2 text-light text-decoration-none"
+              className="ms-4 text-light text-decoration-none"
               to="/zaloguj"
             >
               Log in
@@ -79,7 +79,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className="ms-2 text-light text-decoration-none"
+              className="ms-4 text-light text-decoration-none"
               to="/zarejestruj"
             >
               Register

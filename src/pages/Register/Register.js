@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Register = () => {
-  useWebsiteTitle("Zarejestruj się");
+  useWebsiteTitle("Rejestracja");
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
@@ -39,7 +39,6 @@ const Register = () => {
           },
         ],
       });
-      console.log(res.data);
       setAuth(true, res.data)
       navigate("/");
     } catch (ex) {

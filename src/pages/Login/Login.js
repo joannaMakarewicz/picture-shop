@@ -1,16 +1,42 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+
 import Navbar from "../../components/Header/Navbar/Navbar";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  useWebsiteTitle("Strona logowania");
+  useWebsiteTitle("Logowanie");
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
+  const [auth, setAuth] = useAuth();
 
-  const submit = (e) => {
+  const submit = async e => {
     e.preventDefault();
+
+  //   try {
+  //     const res = await axiosInstance.post("/Auth", {
+  //       records: [
+  //         {
+  //           fields: {
+  //             fldYWDNQU1c1QiJ3L: form.email.value,
+  //             fldxWHbtqZUL05fKh: form.password.value,
+  //           },
+  //         },
+  //       ],
+  //     });
+  //     setAuth(true, res.data)
+  //     navigate("/");
+  //   } catch (ex) {
+  //     console.log(ex.response);
+  //   }
+  // };
+
+
     console.log("zalogowany");
+    setAuth(true);
     navigate("/");
   };
   return (
@@ -32,7 +58,6 @@ const Login = () => {
               type="email"
               className="form-control"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
               placeholder="Enter email"
             />
             <small id="emailHelp" className="form-text text-muted">
