@@ -90,16 +90,18 @@ const Register = () => {
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control mb-3"
               id="password"
               placeholder="Password"
               value={form.password.value}
               onChange={(e) => changeHandler(e.target.value, "password")}
             />
           </div>
-          <button type="submit" className="btn btn-primary mt-3">
-            Submit
-          </button>
+          <div className="position-relative">
+            <button type="submit" className="btn btn-primary position-absolute end-0">
+              Sign up
+            </button>
+          </div>
         </form>
       </section>
     </div>

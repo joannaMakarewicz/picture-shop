@@ -11,6 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
   const [auth, setAuth] = useAuth();
+  const [error, setError] = useState(null);
   const [form, setForm] = useState({
     email: {
       value: "",
@@ -27,17 +28,17 @@ const Login = () => {
       const res = await axiosInstance.get("/Auth");
       res.data.records.forEach((el) => {
         if (
-          el.fields.email.includes(form.email.value) ||
+          el.fields.email.includes(form.email.value) &&
           el.fields.password.includes(form.password.value)
         ) {
-          setValid(true);
           setAuth(true);
           navigate("/");
         } else {
-          setValid(false);
+          setError(true)
         }
       });
     } catch (ex) {
+      setError(ex.response.data.error.message);
       console.log(ex.response);
     }
   };
@@ -82,16 +83,20 @@ const Login = () => {
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control mb-3"
               id="exampleInputPassword1"
               placeholder="Password"
               onChange={(e) => checkHandler(e.target.value, "password")}
               value={form.password.value}
             />
           </div>
-          <button type="submit" className="btn btn-primary mt-3">
-            Submit
-          </button>
+          {error ? <div className="alert alert-danger">Niepoprawne dane logowania</div> : null}
+          <div className="position-relative">
+            <button type="submit" className="btn btn-primary position-absolute end-0">
+              Sign in
+            </button>
+          </div>
+
         </form>
       </section>
     </div>
