@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
+import axiosInstance from "../../services/config";
 
 import Navbar from "../../components/Header/Navbar/Navbar";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
@@ -12,33 +11,46 @@ const Login = () => {
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
   const [auth, setAuth] = useAuth();
+  const [form, setForm] = useState({
+    email: {
+      value: "",
+    },
+    password: {
+      value: "",
+    },
+  });
 
-  const submit = async e => {
+  const submit = async (e) => {
     e.preventDefault();
 
-  //   try {
-  //     const res = await axiosInstance.post("/Auth", {
-  //       records: [
-  //         {
-  //           fields: {
-  //             fldYWDNQU1c1QiJ3L: form.email.value,
-  //             fldxWHbtqZUL05fKh: form.password.value,
-  //           },
-  //         },
-  //       ],
-  //     });
-  //     setAuth(true, res.data)
-  //     navigate("/");
-  //   } catch (ex) {
-  //     console.log(ex.response);
-  //   }
-  // };
-
-
-    console.log("zalogowany");
-    setAuth(true);
-    navigate("/");
+    try {
+      const res = await axiosInstance.get("/Auth");
+      res.data.records.forEach((el) => {
+        if (
+          el.fields.email.includes(form.email.value) ||
+          el.fields.password.includes(form.password.value)
+        ) {
+          setValid(true);
+          setAuth(true);
+          navigate("/");
+        } else {
+          setValid(false);
+        }
+      });
+    } catch (ex) {
+      console.log(ex.response);
+    }
   };
+
+  const checkHandler = (value, fieldName) => {
+    setForm({
+      ...form,
+      [fieldName]: {
+        value: value,
+      },
+    });
+  };
+
   return (
     <div className="container text-light">
       <Navbar />
@@ -59,6 +71,8 @@ const Login = () => {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="Enter email"
+              onChange={(e) => checkHandler(e.target.value, "email")}
+              value={form.email.value}
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -71,6 +85,8 @@ const Login = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              onChange={(e) => checkHandler(e.target.value, "password")}
+              value={form.password.value}
             />
           </div>
           <button type="submit" className="btn btn-primary mt-3">
