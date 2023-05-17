@@ -33,8 +33,8 @@ const Register = () => {
         records: [
           {
             fields: {
-              fldYWDNQU1c1QiJ3L: form.email.value,
-              fldxWHbtqZUL05fKh: form.password.value,
+              email: form.email.value,
+              password: form.password.value,
             },
           },
         ],
