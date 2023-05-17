@@ -59,10 +59,11 @@ const Login = () => {
 
 
   useEffect(()=> {
+
     if(validateEmail(form.email.value)) {
       setErrors({...errors, email: ""})
     }else {
-      setErrors({...errors, email: "Adres e-mail musi zawierać "})
+      setErrors({...errors, email: "Niepoprawny adres e-mail"})
     }
   }, [form.email.value])
 
@@ -97,12 +98,12 @@ const Login = () => {
               placeholder="Enter email"
               onChange={(e) => checkHandler(e.target.value, "email")}
               value={form.email.value}
-              className={`form-control ${errors.email ? 'is-invalid' : 'is-valid'}`}
+              className={`form-control ${errors.email ? 'is-invalid' : ''}`}
             />
             <div className="invalid-feedback">{errors.email}</div>
             <div className="valid-feedback">Wszystko gra!</div>
           </div>
-          <div className="form-group">
+          <div className="form-group mt-3">
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
