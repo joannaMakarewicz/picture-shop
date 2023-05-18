@@ -12,9 +12,10 @@ const Login = () => {
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
   const [auth, setAuth] = useAuth();
+  const [error, setError] = useState (null)
   const [errors, setErrors] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const [form, setForm] = useState({
     email: {
@@ -38,11 +39,10 @@ const Login = () => {
           setAuth(true);
           navigate("/");
         } else {
-          // setError(true)
+          setError(true)
         }
       });
     } catch (ex) {
-
       console.log(ex.response);
     }
   };
@@ -56,26 +56,23 @@ const Login = () => {
     });
   };
 
-
-
-  useEffect(()=> {
-
-    if(validateEmail(form.email.value)) {
-      setErrors({...errors, email: ""})
-    }else {
-      setErrors({...errors, email: "Niepoprawny adres e-mail"})
+  useEffect(() => {
+    if (validateEmail(form.email.value)) {
+      setErrors({ ...errors, email: "" });
+    } else {
+      setErrors({ ...errors, email: "Niepoprawny adres e-mail" });
     }
-  }, [form.email.value])
+  }, [form.email.value]);
 
-  useEffect(()=> {
-    if(form.password.value.length >= 4 || !form.password.value) {
-      setErrors({...errors, password: ""})
-    }else {
-      setErrors({...errors, password: "Wymagane min. 4 znaki"})
+  useEffect(() => {
+    if (form.password.value.length >= 4 || !form.password.value) {
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Wymagane min. 4 znaki" });
     }
-  }, [form.password.value])
+  }, [form.password.value]);
 
-  const buttonDisabled = Object.values(errors).filter(x => x).length
+  const buttonDisabled = Object.values(errors).filter((x) => x).length;
 
   return (
     <div className="container text-light">
@@ -98,7 +95,7 @@ const Login = () => {
               placeholder="Enter email"
               onChange={(e) => checkHandler(e.target.value, "email")}
               value={form.email.value}
-              className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+              className={`form-control ${errors.email ? "is-invalid" : ""}`}
             />
             <div className="invalid-feedback">{errors.email}</div>
             <div className="valid-feedback">Wszystko gra!</div>
@@ -107,7 +104,9 @@ const Login = () => {
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
-              className={`form-control mb-3 ${errors.password ? 'is-invalid' : ''}`}
+              className={`form-control mb-3 ${
+                errors.password ? "is-invalid" : ""
+              }`}
               id="exampleInputPassword1"
               placeholder="Password"
               onChange={(e) => checkHandler(e.target.value, "password")}
@@ -117,14 +116,17 @@ const Login = () => {
             <div className="valid-feedback">Wszystko gra!</div>
           </div>
 
-          {/* {error ? <div className="alert alert-danger">Niepoprawne dane logowania</div> : null} */}
+          {error ? <div className="alert alert-danger">Niepoprawne dane logowania</div> : null}
 
           <div className="position-relative">
-            <button type="submit" className="btn btn-primary position-absolute end-0" disabled={buttonDisabled}>
+            <button
+              type="submit"
+              className="btn btn-primary position-absolute end-0"
+              disabled={buttonDisabled}
+            >
               Sign in
             </button>
           </div>
-
         </form>
       </section>
     </div>

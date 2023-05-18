@@ -18,7 +18,6 @@ function App() {
 
   const [pictures, setPictures] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  console.log(`Status ${isAuthenticated}`)
 
 
   const api =

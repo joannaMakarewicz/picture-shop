@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axiosInstance from "../../services/config";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Header/Navbar/Navbar";
@@ -7,27 +7,40 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Register = () => {
   useWebsiteTitle("Rejestracja");
+  const [emails, setEmails] = useState([]);
+  const [error, setError] = useState(false);
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
   const [form, setForm] = useState({
     email: {
       value: "",
-      // error: "",
-      // showError: false,
-      // rules: ["required"],
     },
     password: {
       value: "",
-      // error: "",
-      // showError: false,
-      // rules: ["required"],
     },
   });
 
-  const submit = async (e) => {
-    e.preventDefault();
+  const takeEmails = async () => {
+    try {
+      const res = await axiosInstance.get("/Auth");
+      setEmails(res.data.records);
+    } catch (ex) {
+      console.log(ex.response);
+    }
+  };
 
+  useEffect(() => {
+    takeEmails();
+  }, []);
+
+  function checkFunction(el) {
+    return el.fields.email === form.email.value;
+  }
+
+  const result = Object.values(emails).filter(checkFunction).length;
+
+  const postNewUser = async () => {
     try {
       const res = await axiosInstance.post("/Auth", {
         records: [
@@ -39,14 +52,25 @@ const Register = () => {
           },
         ],
       });
-      setAuth(true, res.data)
+      setAuth(true, res.data);
       navigate("/");
     } catch (ex) {
       console.log(ex.response);
     }
   };
 
+  const submit = async (e) => {
+    e.preventDefault();
+
+    if (result === 0) {
+      postNewUser();
+    } else {
+      setError(true)
+    }
+  };
+
   const changeHandler = (value, fieldName) => {
+    setError(false);
     setForm({
       ...form,
       [fieldName]: {
@@ -55,8 +79,8 @@ const Register = () => {
     });
   };
 
-  if(auth) {
-    navigate("/")
+  if (auth) {
+    navigate("/");
   }
 
   return (
@@ -97,8 +121,16 @@ const Register = () => {
               onChange={(e) => changeHandler(e.target.value, "password")}
             />
           </div>
+
+          {error ? (
+            <div className="alert alert-danger">Jest już konto</div>
+          ) : null}
+
           <div className="position-relative">
-            <button type="submit" className="btn btn-primary position-absolute end-0">
+            <button
+              type="submit"
+              className="btn btn-primary position-absolute end-0"
+            >
               Sign up
             </button>
           </div>
