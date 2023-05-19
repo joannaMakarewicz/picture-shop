@@ -119,7 +119,7 @@ const Register = () => {
         ) : null}
 
         <form onSubmit={submit}>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"

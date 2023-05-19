@@ -51,9 +51,9 @@ const ContentButtons = ({ picture }) => {
 
           <div className="m-0">
             {likes === false ? (
-              <p>{picture.likes}</p>
+              <p>{picture.fields.likes}</p>
             ) : (
-              <p>{picture.likes + 1}</p>
+              <p>{picture.fields.likes + 1}</p>
             )}
           </div>
         </div>
