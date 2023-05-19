@@ -8,6 +8,11 @@
 
 .header__heading {
     font-weight: 600;
+    font-size: 64px;
+    background: linear-gradient(to right, #b39c4d, #cad593,#b39c4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 

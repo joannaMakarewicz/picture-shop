@@ -23,7 +23,7 @@
     
 }
 
-@media screen and (max-width:768px)  {
+@media screen and (max-width:680px)  {
     .content {
         grid-template-columns: 1fr;
     }

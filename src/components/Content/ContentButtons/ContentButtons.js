@@ -41,7 +41,7 @@ const ContentButtons = ({ picture }) => {
 
   return (
     <div>
-      <div className="d-flex justify-content-between ps-3 pe-3">
+      <div className="d-flex justify-content-between align-items-end">
         <div className="text-center">
           {likes === false ? (
             <BsHeart className="text-end" onClick={counter} />
@@ -51,9 +51,9 @@ const ContentButtons = ({ picture }) => {
 
           <div className="m-0">
             {likes === false ? (
-              <p>{picture.fields.likes}</p>
+              <p className="m-0">{picture.fields.likes}</p>
             ) : (
-              <p>{picture.fields.likes + 1}</p>
+              <p className="m-0">{picture.fields.likes + 1}</p>
             )}
           </div>
         </div>
