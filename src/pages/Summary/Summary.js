@@ -5,9 +5,9 @@ import Navbar from '../../components/Header/Navbar/Navbar';
 const Summary = () => {
   useWebsiteTitle('Podsumowanie zakupów')
   return (
-    <div className='text-light'>
+    <div className='container text-light'>
     <Navbar/>
-      <h1>Twoje zamówienie</h1>
+      <h1 className='mt-3 mb-3'>Twoje zamówienie</h1>
       <ul>
         <li></li>
       </ul>

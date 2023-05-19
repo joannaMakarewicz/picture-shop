@@ -5,6 +5,10 @@
     row-gap: 1rem;
 }
 
+.content__description {
+    height: 4em;
+}
+
 .content__image {
     border: 10px solid #1111;
     height: 18rem;

@@ -12,6 +12,7 @@ import Search from "./pages/Search/Search";
 import AuthContext from "./context/authContext";
 import Summary from "./pages/Summary/Summary";
 import Register from "./pages/Register/Register";
+import axiosInstance from "./services/config";
 
 
 function App() {
@@ -20,19 +21,18 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 
-  const api =
-    "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
-
   const getPicture = async () => {
-    await axios.get(api).then((response) => {
-      setPictures(response.data.results);
+    await axiosInstance.get("/Pictures").then((response) => {
+      setPictures(response.data.records);
     });
   };
-
+  
   useEffect(() => {
     getPicture();
   }, []);
 
+
+console.log(pictures)
 
   return (
     <AuthContext.Provider value = {{
