@@ -5,26 +5,22 @@ import Content from "../../components/Content/Content";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import "../Search/Search.css";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import axiosInstance from "../../services/config";
 
-const Search = () => {
+const Search = ({pictures}) => {
   const { term } = useParams();
   useWebsiteTitle(`Wyszukaj: ${term}`);
-  const [pictures, setPictures] = useState([]);
+  const [inputPictures, setInputPictures] = useState([]);
 
-  const api =
-    "https://api.unsplash.com/search/photos/?query=nature&client_id=Igb2O9bvv--aTkQpflm0vddn4KFisZeUK8myMxOpWlA&";
 
   const searchHandler = async () => {
-    try {
-      const res = await axios.get(api);
-      const newPictures = res.data.results.filter((element) => {
-        return element.tags[0].title.includes(term);
+
+      const newPictures = pictures.filter((element) => {
+        return element.fields.name.includes(term);
       });
 
-      setPictures(newPictures);
-    } catch (ex) {
-      console.log(ex.response);
-    }
+      setInputPictures(newPictures);
+
   };
 
   useEffect(() => {
@@ -40,7 +36,7 @@ const Search = () => {
         ?
         <h2>Pictures not found</h2>
         :
-        <Content pictures={pictures} />
+        <Content pictures={inputPictures} />
         }
       </div>
       

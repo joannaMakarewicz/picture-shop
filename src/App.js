@@ -54,7 +54,7 @@ console.log(pictures)
           />
           <Route path="/zaloguj" element={<Login />} />
           <Route path="/zarejestruj" element={<Register />} />
-          <Route path="/wyszukaj/:term" element={<Search />} />
+          <Route path="/wyszukaj/:term" element={<Search pictures={pictures}/>} />
           <Route path="/koszyk" element={<Summary />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

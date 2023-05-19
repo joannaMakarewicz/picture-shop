@@ -9,8 +9,13 @@
     height: 5em;
 }
 
+.content__frame {
+    background-image: url('../../assets/frame.jpg');
+    background-size: cover;
+}
+
 .content__image {
-    border: 10px solid #1111;
+    border: 15px solid #1111;
     height: 18rem;
 
 }

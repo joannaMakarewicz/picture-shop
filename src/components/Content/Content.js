@@ -7,12 +7,15 @@ const Content = ({ pictures }) => {
     <div className="content text-dark">
       {pictures.map((picture, index, boughtPicture) => {
         return (
-          <div className="card" key={index}>
+          <div className="card border-0 rounded-top" key={index}>
+          <div className="content__frame rounded-top">
             <img
-              className="content__image card-img-top"
-              src={picture.fields.pictures[0].url}
-              alt="random example"
-            />
+                className="content__image card-img-top"
+                src={picture.fields.pictures[0].url}
+                alt="random example"
+              />
+          </div>
+
             <div className=" card-body">
               <div className="d-flex justify-content-between align-items-center mb-4 mt-2">
                 <h5 className="card-title m-0">
