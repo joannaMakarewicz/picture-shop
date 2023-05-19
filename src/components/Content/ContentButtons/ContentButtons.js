@@ -40,7 +40,7 @@ const ContentButtons = ({ picture }) => {
 
 
   return (
-    <div>
+    <div className="mt-2">
       <div className="d-flex justify-content-between align-items-end">
         <div className="text-center">
           {likes === false ? (

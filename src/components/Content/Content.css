@@ -6,7 +6,7 @@
 }
 
 .content__description {
-    height: 4em;
+    height: 5em;
 }
 
 .content__image {
@@ -20,12 +20,18 @@
     .content {
         grid-template-columns: 1fr 1fr;
     }
+    .content__description {
+        height: 4em;
+    }
     
 }
 
 @media screen and (max-width:680px)  {
     .content {
         grid-template-columns: 1fr;
+    }
+    .content__description {
+        height: 3em;
     }
     
 }

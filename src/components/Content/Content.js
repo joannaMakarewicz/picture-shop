@@ -14,14 +14,14 @@ const Content = ({ pictures }) => {
               alt="random example"
             />
             <div className=" card-body">
-              <div className="d-flex justify-content-between">
-                <h5 className="card-title">
+              <div className="d-flex justify-content-between align-items-center mb-4 mt-2">
+                <h5 className="card-title m-0">
                   {picture.fields.name.toUpperCase()}
                 </h5>
                 <p className="card-text">{picture.fields.price}$</p>
               </div>
 
-              <p className="card-text content__description">{picture.fields.description}</p>
+              <p className="card-text content__description m-0">{picture.fields.description}</p>
               <ContentButtons picture={picture} />
             </div>
           </div>
