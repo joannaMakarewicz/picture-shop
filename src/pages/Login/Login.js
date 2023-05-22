@@ -75,7 +75,7 @@ const Login = () => {
   const buttonDisabled = Object.values(errors).filter((x) => x).length;
 
   return (
-    <div className="container text-light">
+    <div className="container-lg text-light">
       <Navbar />
       <section className="pt-3">
         <h1>Login</h1>

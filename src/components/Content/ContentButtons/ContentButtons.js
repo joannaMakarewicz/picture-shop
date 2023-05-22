@@ -38,31 +38,30 @@ const ContentButtons = ({ picture }) => {
     setBoughtPicture(!boughtPicture);
   };
 
-
   return (
     <div className="mt-2">
       <div className="d-flex justify-content-between align-items-end">
         <div className="text-center">
-          {likes === false ? (
-            <BsHeart className="text-end" onClick={counter} />
-          ) : (
+          {likes ? (
             <BsHeartFill className="heart text-end" onClick={counter} />
+          ) : (
+            <BsHeart className="text-end" onClick={counter} />
           )}
 
           <div className="m-0">
-            {likes === false ? (
-              <p className="m-0">{picture.fields.likes}</p>
-            ) : (
+            {likes ? (
               <p className="m-0">{picture.fields.likes + 1}</p>
+            ) : (
+              <p className="m-0">{picture.fields.likes}</p>
             )}
           </div>
         </div>
         {auth ? (
           <div>
-            {boughtPicture === false ? (
+            {boughtPicture ? (
               <button
                 href="/"
-                className="contentButtons__button btn btn-outline-primary ps-4 pe-4"
+                className="contentButtons__button btn btn-primary ps-4 pe-4"
                 onClick={buyPicture}
               >
                 Buy
@@ -70,7 +69,7 @@ const ContentButtons = ({ picture }) => {
             ) : (
               <button
                 href="/"
-                className="contentButtons__button btn btn-primary ps-4 pe-4"
+                className="contentButtons__button btn btn-outline-primary ps-4 pe-4"
                 onClick={buyPicture}
               >
                 Buy
@@ -79,13 +78,7 @@ const ContentButtons = ({ picture }) => {
           </div>
         ) : (
           <div>
-            <button
-              type="button"
-              className="contentButtons__button btn btn-secondary ps-4 pe-4"
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Log-in for buying"
-            >
+            <button type="button" disabled>
               Buy
             </button>
           </div>
