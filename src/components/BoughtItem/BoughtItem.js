@@ -16,19 +16,28 @@ const BoughtItem = ({ picture }) => {
     <>
       {boughtPicture ?
         <div className="boughtItem pb-4 pt-4 border-bottom">
-      <div>
-        <img
-          src={picture.fields.pictures[0].url}
-          className="p-2"
-          alt="selected item"
-        />
-      </div>
-      <div className="p-2">
-        <p>{picture.fields.name.toUpperCase()}</p>
-        <p>{picture.fields.description}</p>
-      </div>
-      <p className="p-2 text-end">{picture.fields.price}$</p>
-    </div>
+            <div className="boughtItem__dropdown">
+                <img
+                  src={picture.fields.pictures[0].url}
+                  className="boughtItem__img p-2 w-100"
+                  alt="selected item"
+                />
+                <div className="boughtItem__content">
+                    <img
+                        src={picture.fields.pictures[0].url}
+                        className="boughtItem__img p-2"
+                        alt="selected item"
+                        width="500px"
+                      />
+                    <div className="boughtItem__info text-dark">{picture.fields.name}</div>
+                </div>
+            </div>
+            <div className="p-2">
+              <h3>{picture.fields.name.toUpperCase()}</h3>
+              <p className="text-secondary m-0">{picture.fields.description}</p>
+            </div>
+            <p className="p-2 text-end">{picture.fields.price}$</p>
+          </div>
     :
     null
       }
