@@ -1,16 +1,40 @@
-import React from "react";
-import "../BoughtItem/BoughtItem.css"
+import React, { useEffect, useState } from "react";
+import "../BoughtItem/BoughtItem.css";
 
-const BoughtItem = ({ pictures }) => {
+const BoughtItem = ({ picture }) => {
+  const purchaseHistory = JSON.parse(
+    localStorage.getItem(`purchase: ${picture.id}`)
+  );
+
+  const [boughtPicture, setBoughtPicture] = useState(purchaseHistory);
+
+  useEffect(() => {
+    console.log(boughtPicture);
+  });
+
   return (
-    <div className="boughtItem bg-primary pb-4 border-bottom">
-      <img src="/" className="p-2" alt="selected item"/>
-      <div className="p-2">
-        <p >Nazwa obrazu</p>
-        <p>Opis obrazu.</p>
+    <>
+      {boughtPicture ?
+        <div className="boughtItem pb-4 pt-4 border-bottom">
+      <div>
+        <img
+          src={picture.fields.pictures[0].url}
+          className="p-2"
+          alt="selected item"
+        />
       </div>
-    <p className="p-2 text-end">Cena</p>
+      <div className="p-2">
+        <p>{picture.fields.name.toUpperCase()}</p>
+        <p>{picture.fields.description}</p>
+      </div>
+      <p className="p-2 text-end">{picture.fields.price}$</p>
     </div>
+    :
+    null
+      }
+    </>
+    
+    
   );
 };
 

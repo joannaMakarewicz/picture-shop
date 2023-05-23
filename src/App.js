@@ -32,7 +32,6 @@ function App() {
   }, []);
 
 
-console.log(pictures)
 
   return (
     <AuthContext.Provider value = {{

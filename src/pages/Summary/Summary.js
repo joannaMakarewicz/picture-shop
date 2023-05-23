@@ -3,22 +3,25 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import BoughtItem from "../../components/BoughtItem/BoughtItem";
 import TotalCost from "../../components/TotalCost/TotalCost";
-import "../Summary/Summary.css"
+import "../Summary/Summary.css";
 
-const Summary = ({pictures}) => {
+const Summary = ({ pictures }) => {
+
   useWebsiteTitle("Order summary");
   return (
     <div className="summary container-lg text-light">
       <Navbar />
       <h1 className="summary__heading mt-3 mb-3">Your card:</h1>
       <div className="summary__content">
+        <div>
+          {pictures.map((picture) => {
+            return <BoughtItem picture={picture} />;
+          })}
+        </div>
 
-              <BoughtItem pictures={pictures}/>
-
-              <TotalCost />
+        <TotalCost />
       </div>
     </div>
-      
   );
 };
 
