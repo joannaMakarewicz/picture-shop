@@ -5,6 +5,7 @@ import Navbar from "../../components/Header/Navbar/Navbar";
 import useAuth from "../../hooks/useAuth";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { validateEmail } from "../../helpers/validations";
+import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 const Register = () => {
   useWebsiteTitle("Rejestracja");
@@ -13,6 +14,7 @@ const Register = () => {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
+  const [loading, setLoading]=useState();
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -66,7 +68,7 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-
+setLoading(true)
     if (result === 0) {
       postNewUser();
     } else {
@@ -153,13 +155,14 @@ const Register = () => {
           ) : null}
 
           <div className="position-relative">
-            <button
+            <LoadingButton
               type="submit"
               className="btn btn-primary position-absolute end-0"
               disabled={buttonDisabled}
+              loading={loading}
             >
               Sign up
-            </button>
+            </LoadingButton>
           </div>
         </form>
       </section>
