@@ -12,7 +12,6 @@ const Search = ({pictures}) => {
   useWebsiteTitle(`Wyszukaj: ${term}`);
   const [inputPictures, setInputPictures] = useState([]);
 
-
   const searchHandler = async () => {
 
       const newPictures = pictures.filter((element) => {
@@ -32,9 +31,9 @@ const Search = ({pictures}) => {
       <Navbar />
       <h1 className="mb-4">Wyniki dla frazy "{term}":</h1>
       <div>
-        {pictures.length === 0
+        {inputPictures.length === 0
         ?
-        <h2>Pictures not found</h2>
+        <p>Pictures not found</p>
         :
         <Content pictures={inputPictures} />
         }

@@ -6,10 +6,12 @@ import Navbar from "../../components/Header/Navbar/Navbar";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import useAuth from "../../hooks/useAuth";
 import { validateEmail } from "../../helpers/validations";
+import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 const Login = () => {
   useWebsiteTitle("Logowanie");
   const navigate = useNavigate();
+  const [loading, setLoading]=useState();
   const [valid, setValid] = useState(null);
   const [auth, setAuth] = useAuth();
   const [error, setError] = useState (null)
@@ -28,7 +30,7 @@ const Login = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const res = await axiosInstance.get("/Auth");
       res.data.records.forEach((el) => {
@@ -40,6 +42,7 @@ const Login = () => {
           navigate("/");
         } else {
           setError(true)
+          setLoading(false);
         }
       });
     } catch (ex) {
@@ -119,13 +122,14 @@ const Login = () => {
           {error ? <div className="alert alert-danger">Niepoprawne dane logowania</div> : null}
 
           <div className="position-relative">
-            <button
+            <LoadingButton
               type="submit"
               className="btn btn-primary position-absolute end-0"
               disabled={buttonDisabled}
+              loading={loading}
             >
               Sign in
-            </button>
+            </LoadingButton>
           </div>
         </form>
       </section>

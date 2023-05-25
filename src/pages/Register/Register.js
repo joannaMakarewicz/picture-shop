@@ -14,7 +14,7 @@ const Register = () => {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [valid, setValid] = useState(null);
-  const [loading, setLoading]=useState();
+  const [loading, setLoading] = useState();
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -68,11 +68,12 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-setLoading(true)
+    setLoading(true);
     if (result === 0) {
       postNewUser();
     } else {
-      setError(true)
+      setError(true);
+      setLoading(false)
     }
   };
 
