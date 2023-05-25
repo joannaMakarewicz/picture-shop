@@ -8,9 +8,9 @@ const LoadingButton = (props) => {
   return (
     props.loading ?
       (
-      <button class="btn btn-primary position-absolute end-0" type="button" disabled>
+      <button className="btn btn-primary position-absolute end-0" type="button" disabled>
         <span
-          class="spinner-border spinner-border-sm me-2"
+          className="spinner-border spinner-border-sm me-2"
           role="status"
           aria-hidden="true"
         ></span>

@@ -14,12 +14,12 @@ const Summary = ({ pictures }) => {
       <h1 className="summary__heading mt-3 mb-3">Your card:</h1>
       <div className="summary__content">
         <div>
-          {pictures.map((picture) => {
-            return <BoughtItem picture={picture} />;
+          {pictures.map((picture, index) => {
+            return <BoughtItem picture={picture} key={index}/>;
           })}
         </div>
 
-        <TotalCost />
+        <TotalCost pictures={pictures}/>
       </div>
     </div>
   );
