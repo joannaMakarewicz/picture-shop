@@ -22,7 +22,7 @@ function App() {
 
 
   const getPicture = async () => {
-    await axiosInstance.get("/Pictures").then((response) => {
+    await axiosInstance.get("/pictures").then((response) => {
       setPictures(response.data.records);
     });
   };
@@ -31,8 +31,7 @@ function App() {
     getPicture();
   }, []);
 
-
-
+ 
   return (
     <AuthContext.Provider value = {{
       isAuthenticated: isAuthenticated,

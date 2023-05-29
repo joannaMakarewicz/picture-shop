@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axiosInstance.get("/Auth");
+      const res = await axiosInstance.get("/auth");
       res.data.records.forEach((el) => {
         if (
           el.fields.email.includes(form.email.value) &&

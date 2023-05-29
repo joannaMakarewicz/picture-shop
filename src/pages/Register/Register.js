@@ -30,7 +30,7 @@ const Register = () => {
 
   const takeEmails = async () => {
     try {
-      const res = await axiosInstance.get("/Auth");
+      const res = await axiosInstance.get("/auth");
       setEmails(res.data.records);
     } catch (ex) {
       console.log(ex.response);
@@ -40,6 +40,7 @@ const Register = () => {
   useEffect(() => {
     takeEmails();
   }, []);
+
 
   function checkFunction(el) {
     return el.fields.email === form.email.value;

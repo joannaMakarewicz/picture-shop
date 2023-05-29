@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState }from "react";
 import ContentButtons from "./ContentButtons/ContentButtons";
 import useAuth from "../../hooks/useAuth";
 import "../Content/Content.css";
@@ -6,9 +6,11 @@ import "../Content/Content.css";
 const Content = ({ pictures }) => {
   const [auth] = useAuth();
 
+
+
   return (
     <div className="content text-dark">
-      {pictures.map((picture, index, boughtPicture) => {
+      {pictures.map((picture, index) => {
         return (
           <div className="card border-0 rounded-top" key={index}>
             <div className="content__frame rounded-top">
