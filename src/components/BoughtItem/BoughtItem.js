@@ -8,9 +8,6 @@ const BoughtItem = ({ picture }) => {
 
   const [boughtPicture, setBoughtPicture] = useState(purchaseHistory);
 
-  useEffect(() => {
-    console.log(boughtPicture);
-  });
 
   return (
     <>
