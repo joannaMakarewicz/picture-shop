@@ -22,16 +22,16 @@ const BoughtItem = ({ picture }) => {
                 <div className="boughtItem__content">
                     <img
                         src={picture.fields.pictures[0].url}
-                        className="boughtItem__img p-2"
+                        className="boughtItem__img--bigger p-2"
                         alt="selected item"
                         width="500px"
                       />
-                    <div className="boughtItem__info text-dark">{picture.fields.name}</div>
+                    <div className="boughtItem__info text-dark text-capitalize">{picture.fields.name}</div>
                 </div>
             </div>
             <div className="p-2">
               <h3>{picture.fields.name.toUpperCase()}</h3>
-              <p className="text-secondary m-0">{picture.fields.description}</p>
+              <p className="boughtItem__description m-0">{picture.fields.description}</p>
             </div>
             <p className="p-2 text-end">{picture.fields.price}$</p>
           </div>
@@ -39,8 +39,6 @@ const BoughtItem = ({ picture }) => {
     null
       }
     </>
-    
-    
   );
 };
 

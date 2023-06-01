@@ -61,7 +61,7 @@ const ContentButtons = ({ picture }) => {
             {boughtPicture ? (
               <button
                 href="/"
-                className="contentButtons__button btn btn-primary ps-4 pe-4"
+                className="contentButtons__button btn btn-success ps-4 pe-4"
                 onClick={buyPicture}
               >
                 Buy
@@ -69,7 +69,7 @@ const ContentButtons = ({ picture }) => {
             ) : (
               <button
                 href="/"
-                className="contentButtons__button btn btn-outline-primary ps-4 pe-4"
+                className="contentButtons__button btn btn-outline-success ps-4 pe-4"
                 onClick={buyPicture}
               >
                 Buy

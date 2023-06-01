@@ -9,23 +9,23 @@ const Content = ({ pictures }) => {
 
 
   return (
-    <div className="content text-dark">
+    <main className="content text-dark">
       {pictures.map((picture, index) => {
         return (
-          <div className="card border-0 rounded-top" key={index}>
-            <div className="content__frame rounded-top">
+          <section className="card border-0 rounded-top" key={index}>
+            <header className="content__frame rounded-top">
               <img
                 className="content__image card-img-top"
                 src={picture.fields.pictures[0].url}
                 alt="random example"
               />
-            </div>
+            </header>
 
-            <div className=" card-body">
+            <article className=" card-body">
               <div className="d-flex justify-content-between align-items-center mb-4 mt-2">
-                <h5 className="card-title m-0">
+                <h2 className="card-title m-0">
                   {picture.fields.name.toUpperCase()}
-                </h5>
+                </h2>
                 {auth ? (
                   <p className="card-text">{picture.fields.price}$</p>
                 ) : (
@@ -44,11 +44,11 @@ const Content = ({ pictures }) => {
                 {picture.fields.description}
               </p>
               <ContentButtons picture={picture} />
-            </div>
-          </div>
+            </article>
+          </section>
         );
       })}
-    </div>
+    </main>
   );
 };
 

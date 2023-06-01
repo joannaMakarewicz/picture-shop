@@ -100,7 +100,7 @@ const Navbar = () => {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button
-          className="btn btn-outline-primary my-2 my-sm-0"
+          className="btn btn-outline-success my-2 my-sm-0"
           onClick={inputSearch}
         >
           Search

@@ -11,6 +11,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
 import AuthContext from "./context/authContext";
 import Summary from "./pages/Summary/Summary";
+import Navbar from "./components/Header/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import axiosInstance from "./services/config";
 
@@ -20,6 +21,7 @@ function App() {
 
   const content = (
     <Home>
+      <Navbar />
       <Header />
       <Content pictures={pictures}/>
       <Footer />
@@ -46,7 +48,7 @@ function App() {
     >
       <Router>
         <Routes>
-          <Route path="/" element={content} />
+          <Route path="/" element={content} className="container-lg"/>
           <Route path="/zaloguj" element={<Login />} />
           <Route path="/zarejestruj" element={<Register />} />
           <Route path="/wyszukaj/:term" element={<Search pictures={pictures} />}/>
