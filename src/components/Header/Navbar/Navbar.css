@@ -1,9 +1,16 @@
 .mainNavbar {
   border-bottom: 1px solid #b39c4d;
+  display: flex;
 }
 
-.mainNavbar__list {
-  list-style-type:none;
+.mainNavbar__hamburger {
+  display: none;
+  top: 16px;
+}
+
+.mainNavbar__navigation {
+  display: flex;
+  list-style-type: none;
 }
 
 .active {
@@ -13,4 +20,40 @@
 #inactive {
   color: #fff;
   text-decoration: none;
-} 
+}
+
+.searchbar__input {
+  border:none;
+  border-radius:6px;
+  outline-color: #198754;
+  padding: 6px 13px;
+}
+
+@media screen and (max-width: 680px) {
+  .mainNavbar__hamburger {
+    background-color: #323031;
+    border: none;
+    color: #fff;
+    display: block;
+    height: 2em;
+    width: 2em;
+  }
+
+  .mainNavbar__hamburger:hover {
+    color: #198754;
+  }
+
+  .mainNavbar__navigation {
+    display: none;
+  }
+
+  .mainNavbar__navigation--open {
+    background-color: red;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+  .searchbar__input {
+    max-width: 50vw;
+  }
+}

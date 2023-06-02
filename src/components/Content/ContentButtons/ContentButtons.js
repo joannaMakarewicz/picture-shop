@@ -45,7 +45,7 @@ const ContentButtons = ({ picture }) => {
           {likes ? (
             <BsHeartFill className="heart text-end" onClick={counter} />
           ) : (
-            <BsHeart className="text-end" onClick={counter} />
+            <BsHeart className="heart__white text-end" onClick={counter} />
           )}
 
           <div className="m-0">
@@ -78,7 +78,7 @@ const ContentButtons = ({ picture }) => {
           </div>
         ) : (
           <div>
-            <button type="button" disabled>
+            <button type="button" className="contentButtons__button--disabled" disabled>
               Buy
             </button>
           </div>

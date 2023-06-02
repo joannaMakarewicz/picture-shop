@@ -32,8 +32,10 @@ const Content = ({ pictures }) => {
                   <span
                     className="btn btn-light"
                     data-toggle="tooltip"
+                    data-placement="top"
                     data-html="true"
                     title="Sign in for checking price"
+                    disabled
                   >
                     XXX$
                   </span>
