@@ -8,7 +8,7 @@ import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 const Register = () => {
-  useWebsiteTitle("Rejestracja");
+  useWebsiteTitle("Sign up");
   const [emails, setEmails] = useState([]);
   const [error, setError] = useState(false);
   const [auth, setAuth] = useAuth();
@@ -40,7 +40,6 @@ const Register = () => {
   useEffect(() => {
     takeEmails();
   }, []);
-
 
   function checkFunction(el) {
     return el.fields.email === form.email.value;
@@ -74,7 +73,7 @@ const Register = () => {
       postNewUser();
     } else {
       setError(true);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -111,7 +110,7 @@ const Register = () => {
   const buttonDisabled = Object.values(errors).filter((x) => x).length;
 
   return (
-    <div className="container text-light">
+    <div className="container-lg text-light">
       <Navbar />
       <section className="pt-3">
         <h1>Register</h1>

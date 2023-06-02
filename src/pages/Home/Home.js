@@ -2,7 +2,7 @@ import React from "react";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Home = (props) => {
-  useWebsiteTitle("Strona główna");
+  useWebsiteTitle("Home");
 
   return <div className="container-lg">{props.children}</div>;
 };

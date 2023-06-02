@@ -9,7 +9,7 @@ import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 const Login = () => {
-  useWebsiteTitle("Logowanie");
+  useWebsiteTitle("Sign in");
   const navigate = useNavigate();
   const [loading, setLoading]=useState();
   const [valid, setValid] = useState(null);

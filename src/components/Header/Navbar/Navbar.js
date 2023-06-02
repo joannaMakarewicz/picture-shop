@@ -11,7 +11,7 @@ const Navbar = () => {
   const listOfItems = useNavigate();
 
   const inputSearch = (e) => {
-    listOfItems(`/wyszukaj/${inputValue}`);
+    listOfItems(`/search/${inputValue}`);
   };
 
   const onKeyDownHandler = (e) => {
@@ -44,11 +44,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="mainNavbar navbar justify-content-between align-items-center pt-3 pb-3">
+    <nav className="mainNavbar navbar justify-content-between align-items-center">
       <button className="mainNavbar__hamburger" onClick={showMenu}>
         <RxHamburgerMenu className="w-100 h-100"/>
       </button>
-      <ul className="mainNavbar__navigation  text-end m-0 p-0">
+      <ul className="mainNavbar__navigation  text-center m-0 p-0">
         <li>
           <NavLink className="text-light text-decoration-none" to="/">
             Home
@@ -60,7 +60,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className="ms-5 text-light text-decoration-none"
-                to="/koszyk"
+                to="/bag"
               >
                 My cart
               </NavLink>
@@ -68,7 +68,7 @@ const Navbar = () => {
             <li>
               <a
                 className="ms-5 text-light text-decoration-none"
-                href="/zaloguj"
+                href="/login"
                 onClick={logout}
               >
                 Log out
@@ -80,7 +80,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className="ms-4 text-light text-decoration-none"
-                to="/zaloguj"
+                to="/login"
               >
                 Log in
               </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className="ms-4 text-light text-decoration-none"
-                to="/zarejestruj"
+                to="/register"
               >
                 Register
               </NavLink>

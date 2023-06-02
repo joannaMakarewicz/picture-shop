@@ -77,11 +77,11 @@ const ContentButtons = ({ picture }) => {
             )}
           </div>
         ) : (
-          <div>
+          <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Sign in for buying"  data-placement="top">
             <button type="button" className="contentButtons__button--disabled" disabled>
               Buy
             </button>
-          </div>
+          </span>
         )}
       </div>
     </div>

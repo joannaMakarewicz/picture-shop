@@ -1,6 +1,7 @@
 .mainNavbar {
   border-bottom: 1px solid #b39c4d;
   display: flex;
+  padding: 16px 0px;
 }
 
 .mainNavbar__hamburger {
@@ -30,6 +31,9 @@
 }
 
 @media screen and (max-width: 680px) {
+  .mainNavbar {
+    padding: 0;
+  }
   .mainNavbar__hamburger {
     background-color: #323031;
     border: none;
@@ -45,6 +49,8 @@
 
   .mainNavbar__navigation {
     display: none;
+    height: 100vh;
+    width: 100vw;
   }
 
   .mainNavbar__navigation--open {

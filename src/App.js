@@ -49,10 +49,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={content} className="container-lg"/>
-          <Route path="/zaloguj" element={<Login />} />
-          <Route path="/zarejestruj" element={<Register />} />
-          <Route path="/wyszukaj/:term" element={<Search pictures={pictures} />}/>
-          <Route path="/koszyk" element={<Summary pictures={pictures} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/search/:term" element={<Search pictures={pictures} />}/>
+          <Route path="/bag" element={<Summary pictures={pictures} />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>

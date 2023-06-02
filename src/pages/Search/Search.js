@@ -9,7 +9,7 @@ import axiosInstance from "../../services/config";
 
 const Search = ({pictures}) => {
   const { term } = useParams();
-  useWebsiteTitle(`Wyszukaj: ${term}`);
+  useWebsiteTitle(`Search: ${term}`);
   const [inputPictures, setInputPictures] = useState([]);
 
   const searchHandler = async () => {
@@ -27,9 +27,9 @@ const Search = ({pictures}) => {
   }, [term]);
 
   return (
-    <div className="container search">
+    <div className="container-lg search">
       <Navbar />
-      <h1 className="mb-4">Wyniki dla frazy "{term}":</h1>
+      <h1 className="mt-4 mb-4">Results for the phrase "{term}":</h1>
       <div>
         {inputPictures.length === 0
         ?
