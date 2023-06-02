@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
@@ -23,10 +27,10 @@ function App() {
     <Home>
       <Navbar />
       <Header />
-      <Content pictures={pictures}/>
+      <Content pictures={pictures} />
       <Footer />
     </Home>
-  )
+  );
 
   const getPicture = async () => {
     await axiosInstance.get("/pictures").then((response) => {
@@ -48,11 +52,16 @@ function App() {
     >
       <Router>
         <Routes>
-          <Route path="/" element={content} className="container-lg"/>
+          <Route path="/" element={content} className="container-lg" />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/search/:term" element={<Search pictures={pictures} />}/>
+          <Route
+            path="/search/:term"
+            element={<Search pictures={pictures} />}
+          />
           <Route path="/bag" element={<Summary pictures={pictures} />} />
+          <Route path="/picture-shop" element={<Navigate to="/" />} />
+          <Route end path="/" element={<Home />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
