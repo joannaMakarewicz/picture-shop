@@ -1,5 +1,6 @@
 {
   "name": "picture-shop",
+  "homepage": "https://joannamakarewicz.github.io/picture-shop/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
