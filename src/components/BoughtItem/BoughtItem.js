@@ -12,7 +12,7 @@ const BoughtItem = ({ picture }) => {
   return (
     <>
       {boughtPicture ?
-        <div className="boughtItem pb-4 pt-4 border-bottom">
+        <div className="boughtItem pb-4 pt-4">
             <div className="boughtItem__dropdown">
                 <img
                   src={picture.fields.pictures[0].url}

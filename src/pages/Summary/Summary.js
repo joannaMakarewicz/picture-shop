@@ -4,6 +4,7 @@ import Navbar from "../../components/Header/Navbar/Navbar";
 import BoughtItem from "../../components/BoughtItem/BoughtItem";
 import TotalCost from "../../components/TotalCost/TotalCost";
 import "../Summary/Summary.css";
+import Footer from "../../components/Footer/Footer";
 
 const Summary = ({ pictures }) => {
 
@@ -13,7 +14,7 @@ const Summary = ({ pictures }) => {
       <Navbar />
       <h1 className="summary__heading mt-3 mb-3">Your card:</h1>
       <div className="summary__content">
-        <div>
+        <div className="summary__content--map">
           {pictures.map((picture, index) => {
             return <BoughtItem picture={picture} key={index}/>;
           })}
@@ -21,6 +22,7 @@ const Summary = ({ pictures }) => {
 
         <TotalCost pictures={pictures}/>
       </div>
+      <Footer/>
     </div>
   );
 };

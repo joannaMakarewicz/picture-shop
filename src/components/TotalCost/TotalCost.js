@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import "../TotalCost/TotalCost.css"
+import "../TotalCost/TotalCost.css";
 
 const TotalCost = ({ pictures }) => {
   const [promo, setPromo] = useState(false);
+  const [code, setCode] = useState(false);
+
   const priceArray = [];
   let purchaseHistory = [];
   let totalSum = 0;
+  let promoPrice = totalSum;
 
   pictures.map((picture) => {
     purchaseHistory = JSON.parse(
@@ -23,14 +26,27 @@ const TotalCost = ({ pictures }) => {
 
   const havePromoCode = () => {
     setPromo(!promo);
+    if (promo === false) {
+      setCode(false);
+    }
   };
 
-  const promoPrice = totalSum*0.9;
+  if (promo) {
+    promoPrice = totalSum * 0.9;
+  } else {
+    promoPrice = totalSum;
+  }
+
+  const onKeyDownHandler = (e) => {
+    if (e.key === "Enter") {
+      setCode(true);
+    }
+  };
 
   return (
     <>
       <div className="p-2">
-        <h2>ORDER SUMMARY</h2>
+        <h2 className="totalCost__heading">ORDER SUMMARY</h2>
         {totalSum > 0 ? (
           <>
             <p className="d-flex justify-content-between">
@@ -38,22 +54,24 @@ const TotalCost = ({ pictures }) => {
             </p>
             <p className="d-flex justify-content-between">
               Do you have a Promo Code?
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  onChange={havePromoCode}
-                />
-              </div>
+              <input
+                className="totalCost__promoInput form-check-input"
+                type="checkbox"
+                onChange={havePromoCode}
+              />
             </p>
             {promo ? (
               <p>
-                <input className="totalCost__promo w-100" value="" placeholder="Enter your promo code"/>
+                <input
+                  className="totalCost__promo w-100"
+                  placeholder="Enter your promo code"
+                  onKeyDown={onKeyDownHandler}
+                />
               </p>
-            )
-            :
-            null}
-            <p className="border-top pt-3 text-end fs-2">Total: {promo? promoPrice : totalSum}$</p>
+            ) : null}
+            <p className="totalCost__sum pt-3 text-end fs-2">
+              Total: {code ? promoPrice : totalSum}$
+            </p>
           </>
         ) : (
           <p>Your bag is empty</p>

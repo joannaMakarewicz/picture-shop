@@ -1,5 +1,24 @@
+.totalCost__heading {
+    background: linear-gradient(to right, #b39c4d, #cad593,#b39c4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 16px 0;
+}
+
+.totalCost__sum {
+    border-top:1px double #fff;
+    background: linear-gradient(to right, #b39c4d, #cad593,#b39c4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 .totalCost__promo {
     border-radius:6px;
     outline-color:#198754;
     padding: 6px 13px;
+}
+
+.totalCost__promoInput {
+color:red
 }
