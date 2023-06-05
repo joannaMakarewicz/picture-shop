@@ -24,7 +24,6 @@ const BoughtItem = ({ picture }) => {
                         src={picture.fields.pictures[0].url}
                         className="boughtItem__img--bigger p-2"
                         alt="selected item"
-                        width="500px"
                       />
                     <div className="boughtItem__info text-dark text-capitalize">{picture.fields.name}</div>
                 </div>
