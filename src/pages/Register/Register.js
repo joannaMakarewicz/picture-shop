@@ -6,6 +6,7 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 import Header from "../../components/Header/Header";
+import "../Register/Register.css";
 
 const Register = () => {
   useWebsiteTitle("Sign up");
@@ -110,7 +111,7 @@ const Register = () => {
   const buttonDisabled = Object.values(errors).filter((x) => x).length;
 
   return (
-    <div className="container-lg text-light">
+    <div className="register container-lg text-light">
       <Header />
       <section className="pt-3">
         <h1>Register</h1>

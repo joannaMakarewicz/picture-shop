@@ -13,15 +13,15 @@ const Summary = ({ pictures }) => {
     <div className="summary container-lg text-light">
       <Navbar />
       <h1 className="summary__heading mt-3 mb-3">Your card:</h1>
-      <div className="summary__content">
-        <div className="summary__content--map">
+      <main className="summary__content">
+        <section className="summary__content--map">
           {pictures.map((picture, index) => {
             return <BoughtItem picture={picture} key={index}/>;
           })}
-        </div>
+        </section>
 
         <TotalCost pictures={pictures}/>
-      </div>
+      </main>
       <Footer/>
     </div>
   );

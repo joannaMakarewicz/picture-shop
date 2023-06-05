@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io";
 import "../TotalCost/TotalCost.css";
 
 const TotalCost = ({ pictures }) => {
@@ -9,6 +10,8 @@ const TotalCost = ({ pictures }) => {
   let purchaseHistory = [];
   let totalSum = 0;
   let promoPrice = totalSum;
+
+  const inputValue = useRef();
 
   pictures.map((picture) => {
     purchaseHistory = JSON.parse(
@@ -43,6 +46,10 @@ const TotalCost = ({ pictures }) => {
     }
   };
 
+  const addPromoCode = () => {
+      setCode(!code);
+  };
+
   return (
     <>
       <div className="p-2">
@@ -61,13 +68,34 @@ const TotalCost = ({ pictures }) => {
               />
             </p>
             {promo ? (
-              <p>
-                <input
-                  className="totalCost__promo w-100"
-                  placeholder="Enter your promo code"
-                  onKeyDown={onKeyDownHandler}
-                />
-              </p>
+              <div className="d-flex align-items-center justify-content-between mb-3 w-100">
+                <p className="m-0">
+                  <input
+                    className="totalCost__promo"
+                    placeholder="Enter your promo code"
+                    onKeyDown={onKeyDownHandler}
+                    id="promoInput"
+                    ref={inputValue}
+                  />
+                  <label for="promoInput" />
+                </p>
+                {code ? (
+                  <IoIosCloseCircle
+                    className="totalCost__icon totalCost__icon--reset"
+                    onClick={addPromoCode}
+                  />
+                ) : (
+                  <IoIosCheckmarkCircleOutline
+                    className="totalCost__icon"
+                    onClick={addPromoCode}
+                  />
+                )}
+              </div>
+            ) : null}
+            {code ? (
+              <div class="alert alert-success" role="alert">
+                Promo Code was added!
+              </div>
             ) : null}
             <p className="totalCost__sum pt-3 text-end fs-2">
               Total: {code ? promoPrice : totalSum}$

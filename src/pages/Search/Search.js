@@ -27,7 +27,7 @@ const Search = ({pictures}) => {
   }, [term]);
 
   return (
-    <div className="container-lg search">
+    <div className="search container-lg search">
       <Navbar />
       <h1 className="mt-4 mb-4">Results for the phrase "{term}":</h1>
       <div>

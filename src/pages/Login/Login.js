@@ -6,6 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 import Header from "../../components/Header/Header";
+import "../Login/Login.css";
 
 const Login = () => {
   useWebsiteTitle("Sign in");
@@ -77,7 +78,7 @@ const Login = () => {
   const buttonDisabled = Object.values(errors).filter((x) => x).length;
 
   return (
-    <div className="container-lg text-light">
+    <div className="login container-lg text-light">
       <Header />
       <section className="pt-3">
         <h1>Login</h1>

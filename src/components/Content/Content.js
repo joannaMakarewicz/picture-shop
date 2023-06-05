@@ -23,7 +23,7 @@ const Content = ({ pictures }) => {
 
             <article className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-4 mt-2">
-                <h2 className="card-title m-0">
+                <h2 className="content__header card-title m-0">
                   {picture.fields.name.toUpperCase()}
                 </h2>
                 {auth ? (

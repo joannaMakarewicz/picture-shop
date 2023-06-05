@@ -75,13 +75,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="mainNavbar__link">
-              <a
+              <NavLink
                 className={({ isActive }) => (isActive ? "active" : "inactive")}
-                href="/login"
+                to="/login"
                 onClick={logout}
               >
                 Log out
-              </a>
+              </NavLink>
             </li>
           </>
         ) : (
@@ -113,7 +113,7 @@ const Navbar = () => {
           placeholder="Search"
           aria-label="Search"
           onKeyDown={onKeyDownHandler}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={(e) => setInputValue((e.target.value).toLowerCase())}
         />
         <button className="btn btn-outline-success h-100" onClick={inputSearch}>
           Search

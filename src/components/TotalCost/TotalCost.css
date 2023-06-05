@@ -6,6 +6,17 @@
     margin: 16px 0;
 }
 
+.totalCost__icon {
+    color:#198754;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+.totalCost__icon--reset {
+color:#842029;
+}
+
 .totalCost__sum {
     border-top:1px double #fff;
     background: linear-gradient(to right, #b39c4d, #cad593,#b39c4d);

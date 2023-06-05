@@ -12,7 +12,7 @@ const BoughtItem = ({ picture }) => {
   return (
     <>
       {boughtPicture ?
-        <div className="boughtItem pb-4 pt-4">
+        <article className="boughtItem pb-4 pt-4">
             <div className="boughtItem__dropdown">
                 <img
                   src={picture.fields.pictures[0].url}
@@ -29,11 +29,11 @@ const BoughtItem = ({ picture }) => {
                 </div>
             </div>
             <div className="p-2">
-              <h3>{picture.fields.name.toUpperCase()}</h3>
+              <h2>{picture.fields.name.toUpperCase()}</h2>
               <p className="boughtItem__description m-0">{picture.fields.description}</p>
             </div>
             <p className="p-2 text-end">{picture.fields.price}$</p>
-          </div>
+          </article>
     :
     null
       }
