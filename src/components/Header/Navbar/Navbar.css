@@ -14,7 +14,15 @@
   list-style-type: none;
 }
 
+.mainNavbar__navigation li a {
+text-decoration: none;
+}
+.mainNavbar__navigation--open li :hover {
+color:#198754;
+  }
+
 .active {
+  color:#198754;
   text-decoration: underline;
 }
 
@@ -39,8 +47,8 @@
     border: none;
     color: #fff;
     display: block;
-    height: 2em;
-    width: 2em;
+font-size: 2rem;
+    z-index: 2;
   }
 
   .mainNavbar__hamburger:hover {
@@ -48,16 +56,29 @@
   }
 
   .mainNavbar__navigation {
-    display: none;
-    height: 100vh;
-    width: 100vw;
+position:absolute;
+    height: 100%;
+    width: 100%;
+    left:-100%;
+    transition: 1s ease;
   }
 
   .mainNavbar__navigation--open {
-    background-color: red;
-    display: block;
+    background-color: #323031;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
     height: 100vh;
+    justify-content: center;
+    line-height: 3em;
+    margin:0;
+    padding: 0;
+    top:0;
+    left:0;
     width: 100vw;
+    transition: 1s ease;
+    z-index: 1;
   }
   .searchbar__input {
     max-width: 50vw;

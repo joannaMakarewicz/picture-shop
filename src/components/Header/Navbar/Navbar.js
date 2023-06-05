@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { RxCross1 } from 'react-icons/rx';
 import useAuth from "../../../hooks/useAuth";
 import "../Navbar/Navbar.css";
 
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
   const [inputValue, setInputValue] = useState("");
+  const [active, setActive]= useState(false);
   const inputRef = useRef();
   const listOfItems = useNavigate();
 
@@ -28,10 +30,6 @@ const Navbar = () => {
     focusInput();
   }, []);
 
-  const login = (e) => {
-    e.preventDefault();
-    setAuth(true);
-  };
 
   const logout = (e) => {
     e.preventDefault();
@@ -39,81 +37,85 @@ const Navbar = () => {
   };
 
   const showMenu = () => {
-    const hamburger = document.querySelector(".mainNavbar__navigation");
-    hamburger.classList.toggle("mainNavbar__navigation--open");
+    setActive(!active)
   };
 
   return (
     <nav className="mainNavbar navbar justify-content-between align-items-center">
-      <button className="mainNavbar__hamburger" onClick={showMenu}>
-        <RxHamburgerMenu className="w-100 h-100"/>
-      </button>
-      <ul className="mainNavbar__navigation  text-center m-0 p-0">
-        <li>
-          <NavLink className="text-light text-decoration-none" to="/">
-            Home
-          </NavLink>
-        </li>
-
-        {auth ? (
-          <>
-            <li>
-              <NavLink
-                className="ms-5 text-light text-decoration-none"
-                to="/bag"
-              >
-                My cart
-              </NavLink>
-            </li>
-            <li>
-              <a
-                className="ms-5 text-light text-decoration-none"
-                href="/login"
-                onClick={logout}
-              >
-                Log out
-              </a>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <NavLink
-                className="ms-4 text-light text-decoration-none"
-                to="/login"
-              >
-                Log in
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="ms-4 text-light text-decoration-none"
-                to="/register"
-              >
-                Register
-              </NavLink>
-            </li>
-          </>
-        )}
-      </ul>
-      <div className=" searchbar d-flex flex-row align-items-center">
-        <input
-          className="searchbar__input me-2 h-100"
-          ref={inputRef}
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-          onKeyDown={onKeyDownHandler}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <button
-          className="btn btn-outline-success h-100"
-          onClick={inputSearch}
-        >
-          Search
+        <button className="mainNavbar__hamburger" onClick={showMenu}>
+        {active
+  ?      
+          <RxCross1 className="w-100 h-100"/>
+  :
+          <RxHamburgerMenu className="w-100 h-100"/>
+        }
         </button>
-      </div>
-    </nav>
+        <ul className={active?  "mainNavbar__navigation mainNavbar__navigation--open text-center m-0 p-0" : "mainNavbar__navigation text-center m-0 p-0"}>
+          <li>
+            <NavLink className="text-light text-decoration-none" to="/">
+              Home
+            </NavLink>
+          </li>
+
+          {auth ? (
+            <div className="text-start">
+              <li>
+                <NavLink
+                  className="text-light text-decoration-none"
+                  to="/bag"
+                >
+                  My cart
+                </NavLink>
+              </li>
+              <li>
+                <a
+                  className="text-light text-decoration-none"
+                  href="/login"
+                  onClick={logout}
+                >
+                  Log out
+                </a>
+              </li>
+            </div>
+          ) : (
+            <>
+              <li>
+                <NavLink
+                  className="text-light text-decoration-none"
+                  to="/login"
+                >
+                  Log in
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className="text-light text-decoration-none"
+                  to="/register"
+                >
+                  Register
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+        <div className=" searchbar d-flex flex-row align-items-center">
+          <input
+            className="searchbar__input me-2 h-100"
+            ref={inputRef}
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            onKeyDown={onKeyDownHandler}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button
+            className="btn btn-outline-success h-100"
+            onClick={inputSearch}
+          >
+            Search
+          </button>
+        </div>
+      </nav>
   );
 };
 
