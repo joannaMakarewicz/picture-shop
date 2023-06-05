@@ -1,4 +1,4 @@
-![cover](https://joannamakarewicz.github.io/hotels/background.jpg)
+![cover](https://joannamakarewicz.github.io/hotels/art.png)
 # Description
 
 My own project and development - art gallery with opportunity to buying and liking pictures.
