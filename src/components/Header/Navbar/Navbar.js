@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import "../Navbar/Navbar.css";
 
 const Navbar = () => {
+
   const [auth, setAuth] = useAuth();
   const [inputValue, setInputValue] = useState("");
   const [active, setActive]= useState(false);
@@ -52,7 +53,7 @@ const Navbar = () => {
         </button>
         <ul className={active?  "mainNavbar__navigation mainNavbar__navigation--open text-center m-0 p-0" : "mainNavbar__navigation text-center m-0 p-0"}>
           <li>
-            <NavLink className="text-light text-decoration-none" to="/">
+            <NavLink className={({ isActive }) => (isActive ? "active" : "inactive")} to="/">
               Home
             </NavLink>
           </li>
@@ -61,7 +62,7 @@ const Navbar = () => {
             <>
               <li className="mainNavbar__link">
                 <NavLink
-                  className="text-light text-decoration-none"
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}
                   to="/bag"
                 >
                   My cart
@@ -69,7 +70,7 @@ const Navbar = () => {
               </li>
               <li className="mainNavbar__link">
                 <a
-                  className="text-light text-decoration-none"
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}
                   href="/login"
                   onClick={logout}
                 >
@@ -81,7 +82,7 @@ const Navbar = () => {
             <>
               <li className="mainNavbar__link">
                 <NavLink
-                  className="text-light text-decoration-none"
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}
                   to="/login"
                 >
                   Log in
@@ -89,7 +90,7 @@ const Navbar = () => {
               </li>
               <li className="mainNavbar__link">
                 <NavLink
-                  className="text-light text-decoration-none"
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}
                   to="/register"
                 >
                   Register
