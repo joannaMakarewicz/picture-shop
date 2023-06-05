@@ -58,8 +58,8 @@ const Navbar = () => {
           </li>
 
           {auth ? (
-            <div className="text-start">
-              <li>
+            <>
+              <li className="mainNavbar__link">
                 <NavLink
                   className="text-light text-decoration-none"
                   to="/bag"
@@ -67,7 +67,7 @@ const Navbar = () => {
                   My cart
                 </NavLink>
               </li>
-              <li>
+              <li className="mainNavbar__link">
                 <a
                   className="text-light text-decoration-none"
                   href="/login"
@@ -76,10 +76,10 @@ const Navbar = () => {
                   Log out
                 </a>
               </li>
-            </div>
+            </>
           ) : (
             <>
-              <li>
+              <li className="mainNavbar__link">
                 <NavLink
                   className="text-light text-decoration-none"
                   to="/login"
@@ -87,7 +87,7 @@ const Navbar = () => {
                   Log in
                 </NavLink>
               </li>
-              <li>
+              <li className="mainNavbar__link">
                 <NavLink
                   className="text-light text-decoration-none"
                   to="/register"

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
+import { SlBasket } from "react-icons/sl"
 import useAuth from "../../../hooks/useAuth";
 import "../ContentButtons/ContentButtons.css";
+import { NavLink } from "react-router-dom";
 
 const ContentButtons = ({ picture }) => {
   const [auth] = useAuth();
@@ -61,25 +63,25 @@ const ContentButtons = ({ picture }) => {
             {boughtPicture ? (
               <button
                 href="/"
-                className="contentButtons__button btn btn-success ps-4 pe-4"
+                className="contentButtons__button btn btn-success"
                 onClick={buyPicture}
               >
-                Buy
+                <SlBasket/>
               </button>
             ) : (
               <button
                 href="/"
-                className="contentButtons__button btn btn-outline-success ps-4 pe-4"
+                className="contentButtons__button btn btn-outline-success"
                 onClick={buyPicture}
               >
-                Buy
+                <SlBasket/>
               </button>
             )}
           </div>
         ) : (
           <span className="d-inline-block" tabIndex="0" data-toggle="tooltip" title="Sign in for buying"  data-placement="top">
-            <button type="button" className="contentButtons__button--disabled" disabled>
-              Buy
+            <button className="contentButtons__button--disabled p-0" disabled>
+              <SlBasket/>
             </button>
           </span>
         )}

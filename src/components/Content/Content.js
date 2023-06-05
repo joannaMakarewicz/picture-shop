@@ -1,12 +1,12 @@
-import React, { useEffect, useState }from "react";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { IoPricetagOutline } from "react-icons/io5";
 import ContentButtons from "./ContentButtons/ContentButtons";
 import useAuth from "../../hooks/useAuth";
 import "../Content/Content.css";
 
 const Content = ({ pictures }) => {
   const [auth] = useAuth();
-
-
 
   return (
     <main className="content text-dark">
@@ -21,7 +21,7 @@ const Content = ({ pictures }) => {
               />
             </header>
 
-            <article className=" card-body">
+            <article className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-4 mt-2">
                 <h2 className="card-title m-0">
                   {picture.fields.name.toUpperCase()}
@@ -29,16 +29,19 @@ const Content = ({ pictures }) => {
                 {auth ? (
                   <p className="card-text">{picture.fields.price}$</p>
                 ) : (
+                  <NavLink to="/login">
                   <span
-                    className="btn btn-light"
                     data-toggle="tooltip"
                     data-placement="top"
                     data-html="true"
                     title="Sign in for checking price"
                     disabled
                   >
-                    XXX$
+                    <IoPricetagOutline className="content__price"/>
                   </span>
+                  </NavLink>
+
+
                 )}
               </div>
 

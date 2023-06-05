@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../services/config";
-
-import Navbar from "../../components/Header/Navbar/Navbar";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import useAuth from "../../hooks/useAuth";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
+import Header from "../../components/Header/Header";
 
 const Login = () => {
   useWebsiteTitle("Sign in");
@@ -79,7 +78,7 @@ const Login = () => {
 
   return (
     <div className="container-lg text-light">
-      <Navbar />
+      <Header />
       <section className="pt-3">
         <h1>Login</h1>
 

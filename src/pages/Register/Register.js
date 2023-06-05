@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../services/config";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Header/Navbar/Navbar";
 import useAuth from "../../hooks/useAuth";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
+import Header from "../../components/Header/Header";
 
 const Register = () => {
   useWebsiteTitle("Sign up");
@@ -111,7 +111,7 @@ const Register = () => {
 
   return (
     <div className="container-lg text-light">
-      <Navbar />
+      <Header />
       <section className="pt-3">
         <h1>Register</h1>
 

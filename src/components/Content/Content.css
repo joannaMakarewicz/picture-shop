@@ -20,6 +20,11 @@
 
 }
 
+.content__price {
+    color: #198754;
+    font-size:1.5em;
+}
+
 
 @media screen and (max-width:1024px)  {
     .content {

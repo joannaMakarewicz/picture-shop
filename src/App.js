@@ -25,8 +25,10 @@ function App() {
 
   const content = (
     <Home>
-      <Navbar />
-      <Header />
+      
+      <Header>
+        <Navbar />
+      </Header>
       <Content pictures={pictures} />
       <Footer />
     </Home>
