@@ -52,6 +52,8 @@
     color: #fff;
     display: block;
     font-size: 2em;
+    max-height: 2em;
+    max-width: 2em;
     z-index: 2;
   }
 
