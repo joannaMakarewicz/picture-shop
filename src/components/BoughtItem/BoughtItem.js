@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../BoughtItem/BoughtItem.css";
+import "../BoughtItem/BoughtItem.scss";
 
 const BoughtItem = ({ picture }) => {
   const purchaseHistory = JSON.parse(

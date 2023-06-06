@@ -6,7 +6,7 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 import Header from "../../components/Header/Header";
-import "../Register/Register.css";
+import "../Register/Register.scss";
 
 const Register = () => {
   useWebsiteTitle("Sign up");

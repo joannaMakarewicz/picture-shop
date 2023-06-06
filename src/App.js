@@ -5,7 +5,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import "./App.css";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
@@ -18,6 +17,7 @@ import Summary from "./pages/Summary/Summary";
 import Navbar from "./components/Header/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import axiosInstance from "./services/config";
+import "./App.scss";
 
 function App() {
   const [pictures, setPictures] = useState([]);

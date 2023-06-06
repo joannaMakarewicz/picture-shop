@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { validateEmail } from "../../helpers/validations";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 import Header from "../../components/Header/Header";
-import "../Login/Login.css";
+import "../Login/Login.scss";
 
 const Login = () => {
   useWebsiteTitle("Sign in");

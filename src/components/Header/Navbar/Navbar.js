@@ -1,34 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import useAuth from "../../../hooks/useAuth";
-import "../Navbar/Navbar.css";
+import "../Navbar/Navbar.scss";
+import Searchbar from "../Searchbar/Searchbar";
 
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
-  const [inputValue, setInputValue] = useState("");
   const [active, setActive] = useState(false);
-  const inputRef = useRef();
-  const listOfItems = useNavigate();
-
-  const inputSearch = (e) => {
-    listOfItems(`/search/${inputValue}`);
-  };
-
-  const onKeyDownHandler = (e) => {
-    if (e.key === "Enter") {
-      inputSearch();
-    }
-  };
-
-  const focusInput = () => {
-    inputRef.current.focus();
-  };
-
-  useEffect(() => {
-    focusInput();
-  }, []);
 
   const logout = (e) => {
     e.preventDefault();
@@ -105,20 +85,7 @@ const Navbar = () => {
           </>
         )}
       </ul>
-      <div className=" searchbar d-flex flex-row align-items-center">
-        <input
-          className="searchbar__input me-2 h-100"
-          ref={inputRef}
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-          onKeyDown={onKeyDownHandler}
-          onChange={(e) => setInputValue((e.target.value).toLowerCase())}
-        />
-        <button className="btn btn-outline-success h-100" onClick={inputSearch}>
-          Search
-        </button>
-      </div>
+      <Searchbar/>
     </nav>
   );
 };

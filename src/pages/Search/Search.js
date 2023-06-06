@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Content from "../../components/Content/Content";
 import Navbar from "../../components/Header/Navbar/Navbar";
-import "../Search/Search.css";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import axiosInstance from "../../services/config";
+import "../Search/Search.scss";
 
 const Search = ({pictures}) => {
   const { term } = useParams();

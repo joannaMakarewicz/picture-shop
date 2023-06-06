@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io";
-import "../TotalCost/TotalCost.css";
+import "../TotalCost/TotalCost.scss";
 
 const TotalCost = ({ pictures }) => {
   const [promo, setPromo] = useState(false);

@@ -3,8 +3,8 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import BoughtItem from "../../components/BoughtItem/BoughtItem";
 import TotalCost from "../../components/TotalCost/TotalCost";
-import "../Summary/Summary.css";
 import Footer from "../../components/Footer/Footer";
+import "../Summary/Summary.scss";
 
 const Summary = ({ pictures }) => {
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { IoPricetagOutline } from "react-icons/io5";
 import ContentButtons from "./ContentButtons/ContentButtons";
 import useAuth from "../../hooks/useAuth";
-import "../Content/Content.css";
+import "../Content/Content.scss";
 
 const Content = ({ pictures }) => {
   const [auth] = useAuth();

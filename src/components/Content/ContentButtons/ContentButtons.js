@@ -3,8 +3,8 @@ import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl"
 import useAuth from "../../../hooks/useAuth";
-import "../ContentButtons/ContentButtons.css";
 import { NavLink } from "react-router-dom";
+import "../ContentButtons/ContentButtons.scss";
 
 const ContentButtons = ({ picture }) => {
   const [auth] = useAuth();
