@@ -2,28 +2,27 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Searchbar = () => {
-    const [inputValue, setInputValue] = useState("");
-    const inputRef = useRef();
-    const listOfItems = useNavigate();
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef();
+  const listOfItems = useNavigate();
 
-    const inputSearch = (e) => {
-        listOfItems(`/search/${inputValue}`);
-      };
-    
-    
-    const focusInput = () => {
-        inputRef.current.focus();
-      };
-    
-      useEffect(() => {
-        focusInput();
-      }, []);
+  const inputSearch = (e) => {
+    listOfItems(`/search/${inputValue}`);
+  };
 
-      const onKeyDownHandler = (e) => {
-        if (e.key === "Enter") {
-          inputSearch();
-        }
-      };
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  useEffect(() => {
+    focusInput();
+  }, []);
+
+  const onKeyDownHandler = (e) => {
+    if (e.key === "Enter") {
+      inputSearch();
+    }
+  };
 
   return (
     <div className=" searchbar d-flex flex-row align-items-center">

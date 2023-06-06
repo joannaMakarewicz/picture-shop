@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import useAuth from "../../../hooks/useAuth";
-import "../Navbar/Navbar.scss";
 import Searchbar from "../Searchbar/Searchbar";
+import Navlink from "../Navlink/Navlink";
+import "../Navbar/Navbar.scss";
 
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
@@ -35,57 +35,21 @@ const Navbar = () => {
             : "mainNavbar__navigation text-center m-0 p-0"
         }
       >
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-            to="/"
-          >
-            Home
-          </NavLink>
-        </li>
+        <Navlink linkName={"Home"} link={"/"} />
 
         {auth ? (
           <>
-            <li className="mainNavbar__link">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "inactive")}
-                to="/bag"
-              >
-                My cart
-              </NavLink>
-            </li>
-            <li className="mainNavbar__link">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "inactive")}
-                to="/login"
-                onClick={logout}
-              >
-                Log out
-              </NavLink>
-            </li>
+            <Navlink linkName={"My cart"} link={"/bag"} />
+            <Navlink linkName={"Log out"} onClick={logout} link={"/login"} />
           </>
         ) : (
           <>
-            <li className="mainNavbar__link">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "inactive")}
-                to="/login"
-              >
-                Log in
-              </NavLink>
-            </li>
-            <li className="mainNavbar__link">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "inactive")}
-                to="/register"
-              >
-                Register
-              </NavLink>
-            </li>
+            <Navlink linkName={"Log in"} link={"/login"} />
+            <Navlink linkName={"Register"} link={"/register"} />
           </>
         )}
       </ul>
-      <Searchbar/>
+      <Searchbar />
     </nav>
   );
 };
