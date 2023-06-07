@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { BsHeart } from "react-icons/bs";
-import { BsHeartFill } from "react-icons/bs";
-import { SlBasket } from "react-icons/sl"
-import useAuth from "../../../hooks/useAuth";
-import { NavLink } from "react-router-dom";
+import { BsHeart } from "react-icons/bs/index.esm.js";
+import { BsHeartFill } from "react-icons/bs/index.esm.js";
+import { SlBasket } from "react-icons/sl/index.esm.js"
+import useAuth from "../../../hooks/useAuth.js";
 import "../ContentButtons/ContentButtons.scss";
 
 const ContentButtons = ({ picture }) => {

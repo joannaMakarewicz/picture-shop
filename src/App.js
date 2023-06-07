@@ -5,18 +5,18 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Header from "./components/Header/Header";
-import Content from "./components/Content/Content";
-import Footer from "./components/Footer/Footer";
-import Login from "./pages/Login/Login";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import Search from "./pages/Search/Search";
-import AuthContext from "./context/authContext";
-import Summary from "./pages/Summary/Summary";
-import Navbar from "./components/Header/Navbar/Navbar";
-import Register from "./pages/Register/Register";
-import axiosInstance from "./services/config";
+import Home from "./pages/Home/Home.js";
+import Header from "./components/Header/Header.js";
+import Content from "./components/Content/Content.js";
+import Footer from "./components/Footer/Footer.js";
+import Login from "./pages/Login/Login.js";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.js";
+import Search from "./pages/Search/Search.js";
+import AuthContext from "./context/authContext.js";
+import Summary from "./pages/Summary/Summary.js";
+import Navbar from "./components/Header/Navbar/Navbar.js";
+import Register from "./pages/Register/Register.js";
+import axiosInstance from "./services/config.js";
 import "./App.scss";
 
 function App() {

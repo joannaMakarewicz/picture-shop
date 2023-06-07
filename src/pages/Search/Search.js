@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import Content from "../../components/Content/Content";
-import Navbar from "../../components/Header/Navbar/Navbar";
-import useWebsiteTitle from "../../hooks/useWebsiteTitle";
-import axiosInstance from "../../services/config";
+import Content from "../../components/Content/Content.js";
+import Navbar from "../../components/Header/Navbar/Navbar.js";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle.js";
 import "../Search/Search.scss";
 
 const Search = ({pictures}) => {

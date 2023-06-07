@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io";
+import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io/index.esm.js";
 import "../TotalCost/TotalCost.scss";
 
 const TotalCost = ({ pictures }) => {

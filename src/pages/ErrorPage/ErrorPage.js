@@ -1,5 +1,5 @@
 import React from 'react';
-import useWebsiteTitle from '../../hooks/useWebsiteTitle';
+import useWebsiteTitle from '../../hooks/useWebsiteTitle.js';
 
 const ErrorPage = () => {
     useWebsiteTitle('ERROR PAGE')
