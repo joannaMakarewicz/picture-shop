@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { IoPricetagOutline } from "react-icons/io5/index.esm.js";
-import ContentButtons from "./ContentButtons/ContentButtons.js";
-import useAuth from "../../hooks/useAuth.js";
+import { IoPricetagOutline } from "react-icons/io5";
+import ContentButtons from "./ContentButtons/ContentButtons";
+import useAuth from "../../hooks/useAuth";
 import "../Content/Content.scss";
 
 const Content = ({ pictures }) => {

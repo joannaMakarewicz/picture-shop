@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx/index.esm.js";
-import { RxCross1 } from "react-icons/rx/index.esm.js";
-import useAuth from "../../../hooks/useAuth.js";
-import Searchbar from "../Searchbar/Searchbar.js";
-import Navlink from "../Navlink/Navlink.js";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
+import useAuth from "../../../hooks/useAuth";
+import Searchbar from "../Searchbar/Searchbar";
+import Navlink from "../Navlink/Navlink";
 import "../Navbar/Navbar.scss";
 
 const Navbar = () => {

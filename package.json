@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "picture-shop",
   "homepage": "https://joannamakarewicz.github.io/picture-shop/",
   "version": "0.1.0",
@@ -23,7 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

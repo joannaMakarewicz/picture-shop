@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../services/config.js";
-import useWebsiteTitle from "../../hooks/useWebsiteTitle.js";
-import useAuth from "../../hooks/useAuth.js";
-import { validateEmail } from "../../helpers/validations.js";
-import LoadingButton from "../../components/LoadingButton/LoadingButton.js";
-import Header from "../../components/Header/Header.js";
+import axiosInstance from "../../services/config";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import useAuth from "../../hooks/useAuth";
+import { validateEmail } from "../../helpers/validations";
+import LoadingButton from "../../components/LoadingButton/LoadingButton";
+import Header from "../../components/Header/Header";
 import "../Login/Login.scss";
 
 const Login = () => {

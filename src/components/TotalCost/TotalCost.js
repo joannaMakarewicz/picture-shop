@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io/index.esm.js";
+import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io";
 import "../TotalCost/TotalCost.scss";
 
 const TotalCost = ({ pictures }) => {
@@ -77,7 +77,7 @@ const TotalCost = ({ pictures }) => {
                     id="promoInput"
                     ref={inputValue}
                   />
-                  <label for="promoInput" />
+                  <label htmlFor="promoInput" />
                 </p>
                 {code ? (
                   <IoIosCloseCircle

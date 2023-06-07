@@ -1,9 +1,9 @@
 import React from "react";
-import useWebsiteTitle from "../../hooks/useWebsiteTitle.js";
-import Navbar from "../../components/Header/Navbar/Navbar.js";
-import BoughtItem from "../../components/BoughtItem/BoughtItem.js";
-import TotalCost from "../../components/TotalCost/TotalCost.js";
-import Footer from "../../components/Footer/Footer.js";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import Navbar from "../../components/Header/Navbar/Navbar";
+import BoughtItem from "../../components/BoughtItem/BoughtItem";
+import TotalCost from "../../components/TotalCost/TotalCost";
+import Footer from "../../components/Footer/Footer";
 import "../Summary/Summary.scss";
 
 const Summary = ({ pictures }) => {
