@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai"
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import "../TotalCost/TotalCost.scss";
 
 const TotalCost = ({ pictures }) => {
   const [promo, setPromo] = useState(false);
   const [code, setCode] = useState(false);
-console.log(promo, code)
+
   const priceArray = [];
   let purchaseHistory = [];
   let totalSum = 0;
@@ -27,7 +27,7 @@ console.log(promo, code)
     totalSum += priceArray[i];
   }
 
-  promoPrice = totalSum*0.9;
+  promoPrice = totalSum * 0.9;
 
   const havePromoCode = () => {
     setPromo(!promo);
@@ -36,7 +36,6 @@ console.log(promo, code)
     }
   };
 
-
   const onKeyDownHandler = (e) => {
     if (e.key === "Enter") {
       setCode(true);
@@ -44,10 +43,9 @@ console.log(promo, code)
   };
 
   const addPromoCode = () => {
-    if(inputValue.current.value){
-      setCode(!code)
+    if (inputValue.current.value) {
+      setCode(!code);
     }
-
   };
 
   return (
@@ -69,10 +67,12 @@ console.log(promo, code)
             </p>
             {promo ? (
               <div className="d-flex align-items-center justify-content-between mb-3 w-100">
-                <p className="m-0">
+                <p className="m-0 me-1">
                   <input
                     className="totalCost__promo"
-                    placeholder={code? "Delete your promo code" : "Enter your promo code"}
+                    placeholder={
+                      code ? "Delete your promo code" : "Enter your promo code"
+                    }
                     onKeyDown={onKeyDownHandler}
                     id="promoInput"
                     ref={inputValue}
@@ -93,12 +93,12 @@ console.log(promo, code)
               </div>
             ) : null}
             {code ? (
-              <div class="alert alert-success" role="alert">
-                Promo Code was added - 10%
+              <div class="totalCost__alert alert alert-success" role="alert">
+                <span>Promo Code was added - 10%</span>
               </div>
             ) : null}
             <p className="totalCost__sum pt-3 text-end fs-2">
-              Total: {code? promoPrice : totalSum}$
+              Total: {code ? promoPrice : totalSum}$
             </p>
           </>
         ) : (

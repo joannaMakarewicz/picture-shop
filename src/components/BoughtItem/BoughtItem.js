@@ -12,7 +12,7 @@ const BoughtItem = ({ picture }) => {
   return (
     <>
       {boughtPicture ?
-        <article className="boughtItem pb-4 pt-4">
+        <div className="boughtItem pb-4 pt-4">
             <div className="boughtItem__dropdown">
                 <img
                   src={picture.fields.pictures[0].url}
@@ -33,7 +33,7 @@ const BoughtItem = ({ picture }) => {
               <p className="boughtItem__description m-0">{picture.fields.description}</p>
             </div>
             <p className="p-2 text-end">{picture.fields.price}$</p>
-          </article>
+          </div>
     :
     null
       }

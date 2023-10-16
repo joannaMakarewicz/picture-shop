@@ -18,6 +18,7 @@ import Navbar from "./components/Header/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import axiosInstance from "./services/config";
 import "./App.scss";
+import OrderedItems from "./pages/OrderedItems/OrderedItems";
 
 function App() {
   const [pictures, setPictures] = useState([]);
@@ -62,6 +63,7 @@ function App() {
             element={<Search pictures={pictures} />}
           />
           <Route path="/bag" element={<Summary pictures={pictures} />} />
+          <Route path="/order" element={<OrderedItems pictures={pictures} />} />
           <Route path="/picture-shop" element={<Navigate to="/" />} />
           <Route end path="/" element={<Home />} />
           <Route path="*" element={<ErrorPage />} />

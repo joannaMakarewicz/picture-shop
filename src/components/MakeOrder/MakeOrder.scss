@@ -1,0 +1,15 @@
+.makeOrder { 
+    width: 100%;
+    @media screen and (min-width:768px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+.makeOrder__button {
+    text-align: end;
+}
+
+.makeOrder__details {
+    text-align: start;
+}

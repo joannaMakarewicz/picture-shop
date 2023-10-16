@@ -10,6 +10,7 @@
     .summary__content {
         grid-template-columns: 2fr 1fr;
         column-gap:20px;
+        min-height: 0;
     }
     .summary__content--map :last-child {
         border:none;
