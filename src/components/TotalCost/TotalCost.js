@@ -1,15 +1,15 @@
 import React, { useState, useRef } from "react";
-import { IoIosCheckmarkCircleOutline, IoIosCloseCircle } from "react-icons/io";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai"
 import "../TotalCost/TotalCost.scss";
 
 const TotalCost = ({ pictures }) => {
   const [promo, setPromo] = useState(false);
   const [code, setCode] = useState(false);
-
+console.log(promo, code)
   const priceArray = [];
   let purchaseHistory = [];
   let totalSum = 0;
-  let promoPrice = totalSum;
+  let promoPrice;
 
   const inputValue = useRef();
 
@@ -27,18 +27,15 @@ const TotalCost = ({ pictures }) => {
     totalSum += priceArray[i];
   }
 
+  promoPrice = totalSum*0.9;
+
   const havePromoCode = () => {
     setPromo(!promo);
-    if (promo === false) {
+    if (code === true) {
       setCode(false);
     }
   };
 
-  if (promo) {
-    promoPrice = totalSum * 0.9;
-  } else {
-    promoPrice = totalSum;
-  }
 
   const onKeyDownHandler = (e) => {
     if (e.key === "Enter") {
@@ -47,7 +44,10 @@ const TotalCost = ({ pictures }) => {
   };
 
   const addPromoCode = () => {
-      setCode(!code);
+    if(inputValue.current.value){
+      setCode(!code)
+    }
+
   };
 
   return (
@@ -72,7 +72,7 @@ const TotalCost = ({ pictures }) => {
                 <p className="m-0">
                   <input
                     className="totalCost__promo"
-                    placeholder="Enter your promo code"
+                    placeholder={code? "Delete your promo code" : "Enter your promo code"}
                     onKeyDown={onKeyDownHandler}
                     id="promoInput"
                     ref={inputValue}
@@ -80,12 +80,12 @@ const TotalCost = ({ pictures }) => {
                   <label htmlFor="promoInput" />
                 </p>
                 {code ? (
-                  <IoIosCloseCircle
+                  <AiOutlineMinusCircle
                     className="totalCost__icon totalCost__icon--reset"
                     onClick={addPromoCode}
                   />
                 ) : (
-                  <IoIosCheckmarkCircleOutline
+                  <AiOutlinePlusCircle
                     className="totalCost__icon"
                     onClick={addPromoCode}
                   />
@@ -94,11 +94,11 @@ const TotalCost = ({ pictures }) => {
             ) : null}
             {code ? (
               <div class="alert alert-success" role="alert">
-                Promo Code was added!
+                Promo Code was added - 10%
               </div>
             ) : null}
             <p className="totalCost__sum pt-3 text-end fs-2">
-              Total: {code ? promoPrice : totalSum}$
+              Total: {code? promoPrice : totalSum}$
             </p>
           </>
         ) : (
