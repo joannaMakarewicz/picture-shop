@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl"
@@ -10,12 +10,20 @@ const ContentButtons = ({ picture }) => {
   const historyValueOfLikes = JSON.parse(
     localStorage.getItem(`likes: ${picture.id}`)
   );
+
   const purchaseHistory = JSON.parse(
     localStorage.getItem(`purchase: ${picture.id}`)
   );
 
   const [likes, setLikes] = useState(historyValueOfLikes);
   const [boughtPicture, setBoughtPicture] = useState(purchaseHistory);
+
+
+
+  useEffect(()=> {
+    setBoughtPicture(purchaseHistory);
+    setLikes(historyValueOfLikes)
+  }, []);
 
   if (likes === null) {
     setLikes(false);

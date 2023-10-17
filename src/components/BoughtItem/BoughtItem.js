@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../BoughtItem/BoughtItem.scss";
 
 const BoughtItem = ({ picture }) => {
+  
   const purchaseHistory = JSON.parse(
     localStorage.getItem(`purchase: ${picture.id}`)
   );

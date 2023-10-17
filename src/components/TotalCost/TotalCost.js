@@ -93,7 +93,7 @@ const TotalCost = ({ pictures }) => {
               </div>
             ) : null}
             {code ? (
-              <div class="totalCost__alert alert alert-success" role="alert">
+              <div className="totalCost__alert alert alert-success" role="alert">
                 <span>Promo Code was added - 10%</span>
               </div>
             ) : null}
