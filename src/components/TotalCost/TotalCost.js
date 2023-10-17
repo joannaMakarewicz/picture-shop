@@ -63,6 +63,7 @@ const TotalCost = ({ pictures }) => {
                 className="totalCost__promoInput form-check-input"
                 type="checkbox"
                 onChange={havePromoCode}
+                id="totalCost"
               />
             </p>
             {promo ? (

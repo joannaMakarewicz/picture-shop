@@ -159,7 +159,7 @@ const Register = () => {
           <div className="position-relative">
             <LoadingButton
               type="submit"
-              className="btn btn-primary position-absolute end-0"
+              className="btn btn-success position-absolute end-0"
               disabled={buttonDisabled}
               loading={loading}
             >

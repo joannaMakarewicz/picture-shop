@@ -1,6 +1,4 @@
-.totalCost__alert {
-    
-}
+@import "../../helpers/variables";
 
 .totalCost__heading {
     background: linear-gradient(to right, #b39c4d, #cad593,#b39c4d);
@@ -34,6 +32,11 @@ color:#842029;
     padding: 6px 13px;
 }
 
-.totalCost__promoInput {
-color:red
+#totalCost {
+    border-color: $green;
 }
+#totalCost:checked {
+    background-color: $green;
+    border-color: $green;
+}
+
