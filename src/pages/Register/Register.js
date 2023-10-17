@@ -70,12 +70,18 @@ const Register = () => {
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (result === 0) {
-      postNewUser();
-    } else {
-      setError(true);
+    if(form.email.value.length === 0) {
+      setError(true)
       setLoading(false);
+    }else{
+      if (result === 0) {
+        postNewUser();
+      } else {
+        setError(true);
+        setLoading(false);
+      }
     }
+    
   };
 
   const changeHandler = (value, fieldName) => {
@@ -153,7 +159,7 @@ const Register = () => {
           </div>
 
           {error ? (
-            <div className="alert alert-danger">Jest już konto</div>
+            <div className="alert alert-danger">Account exists or check data</div>
           ) : null}
 
           <div className="position-relative">

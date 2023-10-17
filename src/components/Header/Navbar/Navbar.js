@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import useAuth from "../../../hooks/useAuth";
@@ -7,12 +8,19 @@ import Navlink from "../Navlink/Navlink";
 import "../Navbar/Navbar.scss";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
   const [active, setActive] = useState(false);
 
   const logout = (e) => {
     e.preventDefault();
     setAuth(false);
+    navigate("/login")
+  };
+
+  const login = (e) => {
+    e.preventDefault();
+    setAuth(true);
   };
 
   const showMenu = () => {

@@ -31,23 +31,30 @@ const Login = () => {
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      const res = await axiosInstance.get("/auth");
-      res.data.records.forEach((el) => {
-        if (
-          el.fields.email.includes(form.email.value) &&
-          el.fields.password.includes(form.password.value)
-        ) {
-          setAuth(true);
-          navigate("/");
-        } else {
-          setError(true)
-          setLoading(false);
-        }
-      });
-    } catch (ex) {
-      console.log(ex.response);
+    if(form.email.value.length === 0) {
+      setError(true)
+      setLoading(false);
+    }else {
+      try {
+        const res = await axiosInstance.get("/auth");
+        
+        res.data.records.forEach((el) => {
+          if (
+            el.fields.email.includes(form.email.value) &&
+            el.fields.password.includes(form.password.value)
+          ) {
+            setAuth(true);
+            navigate("/");
+          } else {
+            setError(true)
+            setLoading(false);
+          }
+        });
+      } catch (ex) {
+        console.log(ex.response);
+      }
     }
+    
   };
 
   const checkHandler = (value, fieldName) => {
@@ -85,7 +92,7 @@ const Login = () => {
 
         {valid === false ? (
           <>
-            <p className="alert alert-danger">Niepoprawne dane logowania</p>
+            <p className="alert alert-danger">Incorrect login details</p>
           </>
         ) : null}
 
@@ -119,7 +126,7 @@ const Login = () => {
             <div className="valid-feedback">Wszystko gra!</div>
           </div>
 
-          {error ? <div className="alert alert-danger">Niepoprawne dane logowania</div> : null}
+          {error ? <div className="alert alert-danger">Incorrect login details</div> : null}
 
           <div className="position-relative">
             <LoadingButton
